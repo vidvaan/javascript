@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h1>JavaScript Functions</h1>
+            <p>Functions in JavaScript are blocks of code that can be defined once and executed whenever needed. Functions help make code more modular, reusable, and easier to maintain.</p>
+        </section>
+
+        <section>
+            <h2>1. Function Declaration</h2>
+            <p>A function declaration defines a function that can be called anywhere in the code after it's declared.</p>
+            
+            <h3>Syntax:</h3>
+            <pre><code>function functionName(parameters) {
+    // function body
+    return value; // optional
+}</code></pre>
+
+            <h3>Example 1:</h3>
+            <pre><code>function greet(name) {
+    return "Hello " + name;
+}
+console.log(greet("Alice")); // Hello Alice</code></pre>
+            <p>The function <code>greet</code> takes a parameter <code>name</code> and returns a greeting message. When called with "Alice", it outputs "Hello Alice".</p>
+
+            <h3>Example 2:</h3>
+            <pre><code>function multiply(a, b) {
+    return a * b;
+}
+console.log(multiply(2, 3)); // 6</code></pre>
+            <p>The function <code>multiply</code> takes two parameters <code>a</code> and <code>b</code> and returns their product. When called with 2 and 3, it outputs 6.</p>
+        </section>
+
+        <section>
+            <h2>2. Function Expression (Anonymous Function)</h2>
+            <p>A function expression is a function assigned to a variable. It can be anonymous (without a name) and is often used for callbacks or as a return value.</p>
+
+            <h3>Syntax:</h3>
+            <pre><code>const functionName = function(parameters) {
+    // function body
+    return value; // optional
+};</code></pre>
+
+            <h3>Example 1:</h3>
+            <pre><code>const sayHello = function(name) {
+    return "Hello " + name;
+};
+console.log(sayHello("Bob")); // Hello Bob</code></pre>
+            <p>An anonymous function is assigned to <code>sayHello</code>. It outputs "Hello Bob" when called with "Bob".</p>
+
+            <h3>Example 2:</h3>
+            <pre><code>const square = function(x) {
+    return x * x;
+};
+console.log(square(4)); // 16</code></pre>
+            <p>The function <code>square</code> calculates the square of the input. When called with 4, it returns 16.</p>
+        </section>
+
+        <section>
+            <h2>3. Arrow Functions</h2>
+            <p>Arrow functions offer a concise way to write functions. They are especially useful for callbacks or in functional programming.</p>
+            
+            <h3>Syntax:</h3>
+            <pre><code>const functionName = (parameters) => {
+    // function body
+    return value; // optional
+};</code></pre>
+
+            <h3>Example 1:</h3>
+            <pre><code>const add = (a, b) => a + b;
+console.log(add(3, 4)); // 7</code></pre>
+            <p>The <code>add</code> function returns the sum of two numbers. When called with 3 and 4, it outputs 7.</p>
+
+            <h3>Example 2:</h3>
+            <pre><code>const greetUser = name => `Hello, ${name}!`;
+console.log(greetUser("Charlie")); // Hello, Charlie!</code></pre>
+            <p>The <code>greetUser</code> function uses template literals to return a greeting. It outputs "Hello, Charlie!" when called with "Charlie".</p>
+
+            <h3>Example 3 (without curly braces):</h3>
+            <pre><code>const double = x => x * 2;
+console.log(double(5)); // 10</code></pre>
+            <p>If the function body has a single expression, curly braces and <code>return</code> are optional. The <code>double</code> function multiplies input by 2.</p>
+
+            <h3>Example 4 (with multiple parameters):</h3>
+            <pre><code>const multiplyNumbers = (a, b) => {
+    return a * b;
+};
+console.log(multiplyNumbers(2, 3)); // 6</code></pre>
+            <p>The <code>multiplyNumbers</code> function returns the product of two numbers.</p>
+        </section>
+
+        <section>
+            <h2>4. Functions with Default Parameters</h2>
+            <p>Default parameters are used when no argument is passed for a parameter.</p>
+
+            <h3>Syntax:</h3>
+            <pre><code>function functionName(param = defaultValue) {
+    // function body
+}</code></pre>
+
+            <h3>Example:</h3>
+            <pre><code>function greet(name = "Guest") {
+    return "Hello " + name;
+}
+console.log(greet()); // Hello Guest
+console.log(greet("Alice")); // Hello Alice</code></pre>
+            <p>The <code>greet</code> function defaults <code>name</code> to "Guest" if no argument is provided.</p>
+        </section>
+
+        <section>
+            <h2>5. Functions as Arguments (Callback Functions)</h2>
+            <p>Functions can be passed as arguments to other functions, making them versatile for callbacks and event handling.</p>
+
+            <h3>Syntax:</h3>
+            <pre><code>function mainFunction(callback) {
+    callback();
+}
+mainFunction(() => console.log("Callback function executed"));</code></pre>
+
+            <h3>Example:</h3>
+            <pre><code>function greetUser(name, callback) {
+    console.log("Hello " + name);
+    callback();
+}
+
+greetUser("Alice", function() {
+    console.log("Goodbye Alice!");
+});</code></pre>
+            <p>The <code>greetUser</code> function takes a name and a callback, greeting the user and then executing the callback.</p>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

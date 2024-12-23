@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Objects</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h1>JavaScript Objects</h1>
+            <p>In JavaScript, an object is a collection of properties and methods. A property is a key-value pair, where the key is a string (or symbol), and the value can be any data type, including another object or function. Objects allow you to store and organize data in a structured way.</p>
+        </section>
+
+        <section>
+            <h2>1. Creating Objects in JavaScript</h2>
+            <p>There are several ways to create objects in JavaScript:</p>
+
+            <h3>1.1 Object Literal Notation</h3>
+            <p>The most common way to create an object is by using object literal notation.</p>
+
+            <h4>Syntax:</h4>
+            <pre>
+                <code>
+const objectName = {
+    key1: value1,
+    key2: value2,
+    // More properties
+};
+                </code>
+            </pre>
+
+            <h4>Example 1:</h4>
+            <pre>
+                <code>
+const person = {
+    name: "Alice",
+    age: 30,
+    greet: function() {
+        console.log("Hello " + this.name);
+    }
+};
+person.greet(); // Hello Alice
+                </code>
+            </pre>
+            <p>This example shows a simple object `person` with three properties: `name`, `age`, and a method `greet`. The method uses `this` to refer to the object itself and access its properties.</p>
+
+            <h3>1.2 Using the `new Object()` Syntax</h3>
+            <p>Another way to create an object is by using the `new Object()` constructor.</p>
+
+            <h4>Syntax:</h4>
+            <pre>
+                <code>
+const objectName = new Object();
+objectName.key1 = value1;
+objectName.key2 = value2;
+                </code>
+            </pre>
+
+            <h4>Example 2:</h4>
+            <pre>
+                <code>
+const person = new Object();
+person.name = "Bob";
+person.age = 25;
+person.greet = function() {
+    console.log("Hello " + this.name);
+};
+person.greet(); // Hello Bob
+                </code>
+            </pre>
+            <p>Here, we create an empty object using the `new Object()` constructor and then add properties and methods to it.</p>
+
+            <h3>1.3 Using a Constructor Function</h3>
+            <p>You can also create objects using constructor functions, which allow you to create multiple instances of similar objects.</p>
+
+            <h4>Syntax:</h4>
+            <pre>
+                <code>
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.greet = function() {
+        console.log("Hello " + this.name);
+    };
+}
+const person1 = new Person("Charlie", 35);
+person1.greet(); // Hello Charlie
+                </code>
+            </pre>
+
+            <h4>Example 3:</h4>
+            <pre>
+                <code>
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.greet = function() {
+        console.log("Hello " + this.name);
+    };
+}
+const person1 = new Person("Charlie", 35);
+const person2 = new Person("David", 40);
+person1.greet(); // Hello Charlie
+person2.greet(); // Hello David
+                </code>
+            </pre>
+            <p>The constructor function `Person` is used to create multiple objects (`person1`, `person2`) with their own properties and methods.</p>
+
+            <h3>1.4 Using `Object.create()` Method</h3>
+            <p>JavaScript also provides the `Object.create()` method, which is used to create a new object using an existing object as a prototype.</p>
+
+            <h4>Syntax:</h4>
+            <pre>
+                <code>
+const newObject = Object.create(prototypeObject);
+                </code>
+            </pre>
+
+            <h4>Example 4:</h4>
+            <pre>
+                <code>
+const personPrototype = {
+    greet: function() {
+        console.log("Hello " + this.name);
+    }
+};
+const person1 = Object.create(personPrototype);
+person1.name = "Eve";
+person1.greet(); // Hello Eve
+                </code>
+            </pre>
+            <p>In this example, `personPrototype` serves as the prototype for the new object `person1`. The method `greet` is inherited from the prototype.</p>
+        </section>
+
+        <section>
+            <h2>2. Accessing and Modifying Object Properties</h2>
+            <p>You can access and modify the properties of objects using either dot notation or bracket notation.</p>
+
+            <h3>2.1 Dot Notation</h3>
+            <pre>
+                <code>
+person.name = "Alice";
+console.log(person.name); // Alice
+                </code>
+            </pre>
+            <p>Dot notation is the most common way to access and modify object properties.</p>
+
+            <h3>2.2 Bracket Notation</h3>
+            <pre>
+                <code>
+person["age"] = 30;
+console.log(person["age"]); // 30
+                </code>
+            </pre>
+            <p>Bracket notation allows you to access or modify properties dynamically using a string or variable.</p>
+        </section>
+
+        <section>
+            <h2>3. Object Methods</h2>
+            <p>Objects can also have methods, which are functions associated with an object.</p>
+
+            <h3>Example:</h3>
+            <pre>
+                <code>
+const car = {
+    make: "Toyota",
+    model: "Corolla",
+    year: 2021,
+    displayInfo: function() {
+        console.log(`Car: ${this.year} ${this.make} ${this.model}`);
+    }
+};
+car.displayInfo(); // Car: 2021 Toyota Corolla
+                </code>
+            </pre>
+            <p>In this example, the `car` object has a method `displayInfo` which displays the car's information using the `this` keyword.</p>
+        </section>
+
+        <section>
+            <h2>4. Object Destructuring</h2>
+            <p>Object destructuring allows you to extract properties from an object into variables.</p>
+
+            <h3>Syntax:</h3>
+            <pre>
+                <code>
+const { property1, property2 } = objectName;
+                </code>
+            </pre>
+
+            <h3>Example:</h3>
+            <pre>
+                <code>
+const person = {
+    name: "Alice",
+    age: 30,
+    country: "USA"
+};
+const { name, age } = person;
+console.log(name); // Alice
+console.log(age);  // 30
+                </code>
+            </pre>
+            <p>Here, we extract the `name` and `age` properties from the `person` object and assign them to variables using destructuring.</p>
+        </section>
+
+        <section>
+            <h2>5. Adding and Removing Properties</h2>
+            <p>You can add and remove properties from an object at any time.</p>
+
+            <h3>Example: Adding a Property</h3>
+            <pre>
+                <code>
+person.city = "New York";
+console.log(person.city); // New York
+                </code>
+            </pre>
+
+            <h3>Example: Removing a Property</h3>
+            <pre>
+                <code>
+delete person.city;
+console.log(person.city); // undefined
+                </code>
+            </pre>
+            <p>In these examples, we add the `city` property to the `person` object and then remove it using the `delete` keyword.</p>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Modules</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h1>JavaScript Modules</h1>
+            <p>Modules are a way to organize and reuse JavaScript code. They allow developers to export functions, objects, or values from one file and import them into another. This modular approach makes code more maintainable and scalable.</p>
+        </section>
+
+        <section>
+            <h2>1. Exporting and Importing</h2>
+            <p>JavaScript modules use the <code>export</code> and <code>import</code> keywords to share and use code across different files.</p>
+
+            <h3>Example: Named Export and Import</h3>
+            <p>In this example, we export a function and a constant from one file and import them into another:</p>
+            <pre>
+<code>// math.js
+export const PI = 3.14;
+export function add(a, b) {
+    return a + b;
+}
+
+// main.js
+import { PI, add } from './math.js';
+console.log(PI); // Outputs: 3.14
+console.log(add(2, 3)); // Outputs: 5
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>2. Default Export and Import</h2>
+            <p>A module can have a default export, which is imported without curly braces. Useful for exporting a single main value or function.</p>
+            <h3>Example: Default Export</h3>
+            <pre>
+<code>// greet.js
+export default function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+// main.js
+import greet from './greet.js';
+console.log(greet('Alice')); // Outputs: Hello, Alice!
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>3. Importing Everything</h2>
+            <p>You can import all the exports from a module using <code>*</code> as an alias.</p>
+            <h3>Example: Import All</h3>
+            <pre>
+<code>// utils.js
+export function square(x) {
+    return x * x;
+}
+export function cube(x) {
+    return x * x * x;
+}
+
+// main.js
+import * as Utils from './utils.js';
+console.log(Utils.square(3)); // Outputs: 9
+console.log(Utils.cube(3));   // Outputs: 27
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>4. Re-exporting Modules</h2>
+            <p>Modules can re-export exports from another module, creating a chain of exports.</p>
+            <h3>Example: Re-exporting</h3>
+            <pre>
+<code>// constants.js
+export const PI = 3.14;
+export const E = 2.71;
+
+// math.js
+export * from './constants.js';
+
+// main.js
+import { PI, E } from './math.js';
+console.log(PI); // Outputs: 3.14
+console.log(E);  // Outputs: 2.71
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>5. Dynamic Imports</h2>
+            <p>Dynamic imports allow you to load modules at runtime, which can improve performance by deferring the loading of unused modules.</p>
+            <h3>Example: Dynamic Import</h3>
+            <pre>
+<code>// main.js
+async function loadModule() {
+    const math = await import('./math.js');
+    console.log(math.add(2, 3)); // Outputs: 5
+}
+loadModule();
+</code>
+            </pre>
+        </section>
+
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h2>What are JavaScript Events?</h2>
+            <p>Events in JavaScript are actions or occurrences that happen in the browser, such as when a user clicks on an element, submits a form, or moves the mouse over an element. JavaScript allows us to handle these events through event listeners, which respond when the event occurs.</p>
+        </section>
+
+        <section>
+            <h2>AddingEvents Examples</h2>
+            <p>Here are some examples of adding events in different ways:</p>
+        
+            <h3>Inline Event Handling:</h3>
+            <pre><code>&lt;button onclick="alert('Button clicked!')"&gt;Click Me&lt;/button&gt;</code></pre>
+        
+            <h3>Event Handler Property:</h3>
+            <pre><code>
+&lt;button id="btn1"&gt;Click Me&lt;/button&gt;
+&lt;script&gt;
+document.getElementById('btn1').onclick = function() {
+    alert('Button clicked using event handler property!');
+};
+&lt;/script&gt;
+</code></pre>
+        
+            <h3>Event Listener:</h3>
+            <pre><code>
+&lt;button id="btn2"&gt;Click Me&lt;/button&gt;
+&lt;script&gt;
+document.getElementById('btn2').addEventListener('click', function() {
+    alert('Button clicked using event listener!');
+});
+&lt;/script&gt;
+</code></pre>
+        </section>
+        
+
+        <section>
+            <h2>Ways to Add Events in JavaScript</h2>
+            <p>There are three common ways to add events to elements in JavaScript:</p>
+            <ul>
+                <li><strong>Inline Event Handling:</strong> Adding event handler directly in the HTML element using the <code>onEvent</code> attribute (e.g., <code>onclick</code>, <code>onmouseover</code>).</li>
+                <li><strong>Event Handler Property:</strong> Assigning an event handler function to an element's event property (e.g., <code>element.onclick = function()</code>).</li>
+                <li><strong>Event Listener:</strong> Using <code>addEventListener()</code> to attach an event handler to an element, which allows multiple handlers for the same event.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Common JavaScript Events</h2>
+            <p>Below are a couple of common JavaScript events:</p>
+                <h2>Click Event</h2>
+                <pre><code>&lt;button id="clickBtn"&gt;Click Me&lt;/button&gt;
+&lt;script&gt;
+document.getElementById('clickBtn').addEventListener('click', function() {
+    alert('Button clicked!');
+});
+&lt;/script&gt;</code></pre>
+            
+                <h2>Mouseover Event</h2>
+<pre><code>&lt;div id="hoverDiv"&gt;Hover over me!&lt;/div&gt;
+&lt;script&gt;
+document.getElementById('hoverDiv').addEventListener('mouseover', function() {
+    alert('Mouse over element!');
+});
+&lt;/script&gt;</code></pre>
+            
+                <h2>Keydown Event</h2>
+<pre><code>&lt;script&gt;
+document.addEventListener('keydown', function(event) {
+    console.log('Key pressed:', event.key);
+});
+&lt;/script&gt;
+</code></pre>
+            
+                <h2>Submit Event</h2>
+<pre><code>&lt;form id="submitForm"&gt;
+    &lt;input type="text" placeholder="Type something" required&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+&lt;script&gt;
+document.getElementById('submitForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Form submitted!');
+});
+&lt;/script&gt;
+                </code></pre>
+            
+                <h2>Resize Event</h2>
+<pre><code>&lt;script&gt;
+window.addEventListener('resize', function() {
+    console.log('Window resized!');
+});
+&lt;/script&gt;</code></pre>
+            
+                <h2>Scroll Event</h2>
+<pre><code>&lt;script&gt;
+window.addEventListener('scroll', function() {
+    console.log('Page scrolled!');
+});&lt;/script&gt;</code></pre>
+            
+                <h2>Focus Event</h2>
+<pre><code>&lt;input type="text" id="focusInput" placeholder="Focus on me"&gt;
+&lt;script&gt;
+document.getElementById('focusInput').addEventListener('focus', function() {
+    console.log('Input field focused!');
+});
+&lt;/script&gt;</code></pre>
+            
+<h2>Blur Event</h2>
+<pre><code>
+&lt;input type="text" id="blurInput" placeholder="Blur from me"&gt;
+&lt;script&gt;
+document.getElementById('blurInput').addEventListener('blur', function() {
+    console.log('Input field lost focus!');
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2>Change Event</h2>
+<pre><code>
+&lt;select id="changeSelect"&gt;
+    &lt;option value="Option 1"&gt;Option 1&lt;/option&gt;
+    &lt;option value="Option 2"&gt;Option 2&lt;/option&gt;
+    &lt;option value="Option 3"&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;
+&lt;script&gt;
+document.getElementById('changeSelect').addEventListener('change', function() {
+    console.log('Value changed!');
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2>Drag Event</h2>
+<pre><code>
+&lt;div id="dragDiv" draggable="true"&gt;Drag me!&lt;/div&gt;
+&lt;script&gt;
+document.getElementById('dragDiv').addEventListener('drag', function() {
+    console.log('Element is being dragged!');
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2>Drop Event</h2>
+<pre><code>
+&lt;div id="dropDiv"&gt;Drop here!&lt;/div&gt;
+&lt;script&gt;
+document.getElementById('dropDiv').addEventListener('drop', function() {
+    console.log('Element dropped!');
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2>Input Event</h2>
+<pre><code>
+&lt;input type="text" id="inputField" placeholder="Type something"&gt;
+&lt;script&gt;
+document.getElementById('inputField').addEventListener('input', function() {
+    console.log('Input typed!');
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2>Load Event</h2>
+<pre><code>
+&lt;script&gt;
+window.addEventListener('load', function() {
+    console.log('Page loaded!');
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2>Unload Event</h2>
+<pre><code>
+&lt;script&gt;
+window.addEventListener('unload', function() {
+    console.log('Page unloaded!');
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2>Double-click Event</h2>
+<pre><code>
+&lt;button id="dblClickBtn"&gt;Double-click Me&lt;/button&gt;
+&lt;script&gt;
+document.getElementById('dblClickBtn').addEventListener('dblclick', function() {
+    alert('Element double-clicked!');
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2>Context Menu Event</h2>
+<pre><code>
+&lt;div id="contextDiv"&gt;Right-click on me!&lt;/div&gt;
+&lt;script&gt;
+document.getElementById('contextDiv').addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+    alert('Right-click disabled!');
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2>Mouseout Event</h2>
+<pre><code>
+&lt;div id="mouseoutDiv"&gt;Move your mouse out of me!&lt;/div&gt;
+&lt;script&gt;
+document.getElementById('mouseoutDiv').addEventListener('mouseout', function() {
+    alert('Mouse out of element!');
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2>Mousemove Event</h2>
+<pre><code>
+&lt;div id="mousemoveDiv"&gt;Move your mouse over me!&lt;/div&gt;
+&lt;script&gt;
+document.getElementById('mousemoveDiv').addEventListener('mousemove', function() {
+    console.log('Mouse is moving over the element!');
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2>Wheel Event</h2>
+<pre><code>
+&lt;script&gt;
+window.addEventListener('wheel', function(event) {
+    console.log('Mouse wheel scrolled!', event.deltaY);
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2>Error Event</h2>
+<pre><code>
+&lt;script&gt;
+window.addEventListener('error', function(event) {
+    console.error('Error occurred:', event.message);
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2>Beforeunload Event</h2>
+<pre><code>
+&lt;script&gt;
+window.addEventListener('beforeunload', function(event) {
+    event.preventDefault();
+    event.returnValue = '';
+});
+&lt;/script&gt;
+</code></pre>
+
+           
+            
+            
+        </section>
+
+        <section>
+            <h2>JavaScript Events Table</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>click</td>
+                        <td>Triggered when an element is clicked.</td>
+                    </tr>
+                    <tr>
+                        <td>mouseover</td>
+                        <td>Triggered when the mouse pointer enters an element.</td>
+                    </tr>
+                    <tr>
+                        <td>keydown</td>
+                        <td>Triggered when a key is pressed down.</td>
+                    </tr>
+                    <tr>
+                        <td>submit</td>
+                        <td>Triggered when a form is submitted.</td>
+                    </tr>
+                    <tr>
+                        <td>resize</td>
+                        <td>Triggered when the window is resized.</td>
+                    </tr>
+                    <tr>
+                        <td>scroll</td>
+                        <td>Triggered when the document view is scrolled.</td>
+                    </tr>
+                    <tr>
+                        <td>focus</td>
+                        <td>Triggered when an element gains focus (e.g., an input field).</td>
+                    </tr>
+                    <tr>
+                        <td>blur</td>
+                        <td>Triggered when an element loses focus.</td>
+                    </tr>
+                    <tr>
+                        <td>change</td>
+                        <td>Triggered when the value of an input, select, or textarea element changes.</td>
+                    </tr>
+                    <tr>
+                        <td>drag</td>
+                        <td>Triggered when an element is being dragged.</td>
+                    </tr>
+                    <tr>
+                        <td>drop</td>
+                        <td>Triggered when a dragged element is dropped onto a valid target.</td>
+                    </tr>
+                    <tr>
+                        <td>input</td>
+                        <td>Triggered when the value of an input field changes (e.g., typing).</td>
+                    </tr>
+                    <tr>
+                        <td>load</td>
+                        <td>Triggered when the page or an element (like an image) is fully loaded.</td>
+                    </tr>
+                    <tr>
+                        <td>unload</td>
+                        <td>Triggered when the page is unloaded.</td>
+                    </tr>
+                    <tr>
+                        <td>dblclick</td>
+                        <td>Triggered when an element is double-clicked.</td>
+                    </tr>
+                    <tr>
+                        <td>contextmenu</td>
+                        <td>Triggered when a user right-clicks on an element.</td>
+                    </tr>
+                    <tr>
+                        <td>mouseout</td>
+                        <td>Triggered when the mouse pointer leaves an element.</td>
+                    </tr>
+                    <tr>
+                        <td>mousemove</td>
+                        <td>Triggered when the mouse pointer moves over an element.</td>
+                    </tr>
+                    <tr>
+                        <td>wheel</td>
+                        <td>Triggered when the mouse wheel is scrolled.</td>
+                    </tr>
+                    <tr>
+                        <td>error</td>
+                        <td>Triggered when an error occurs (e.g., in loading an image).</td>
+                    </tr>
+                    <tr>
+                        <td>beforeunload</td>
+                        <td>Triggered before the user leaves the page or reloads it.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

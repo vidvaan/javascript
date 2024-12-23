@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Variables and Data Types</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h1>JavaScript Variables and Data Types</h1>
+            <p>JavaScript has three main ways to declare variables and uses various data types for storing values. Understanding how to declare variables and the different data types is essential for writing efficient code.</p>
+        </section>
+
+        <section>
+            <h2>1. Declaring Variables in JavaScript</h2>
+            <p>In JavaScript, variables can be declared using <code>var</code>, <code>let</code>, and <code>const</code>. These keywords determine the scope and reassignability of the variable.</p>
+            
+            <h3>var</h3>
+            <p><code>var</code> is function-scoped, meaning it is accessible within the function in which it is declared or globally if declared outside of a function. It can be re-declared and updated.</p>
+            <pre>
+<code>
+var x = 10;
+var x = 20; // Re-declaring and updating the value
+console.log(x); // Outputs 20
+</code>
+            </pre>
+
+            <h3>let</h3>
+            <p><code>let</code> is block-scoped, meaning it is only accessible within the block (enclosed by curly braces) in which it is declared. It can be updated but not re-declared within the same block.</p>
+            <pre>
+<code>
+let y = 30;
+y = 40; // Updating the value
+console.log(y); // Outputs 40
+// let y = 50; // Error: Cannot redeclare block-scoped variable 'y'
+</code>
+            </pre>
+
+            <h3>const</h3>
+            <p><code>const</code> is also block-scoped like <code>let</code>, but its value cannot be updated or re-declared. Once assigned, the value is constant.</p>
+            <pre>
+<code>
+const z = 50;
+// z = 60; // Error: Assignment to constant variable.
+console.log(z); // Outputs 50
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>2. Data Types in JavaScript</h2>
+            <p>JavaScript has two main categories of data types: <strong>Primitive</strong> and <strong>Reference</strong> types.</p>
+
+            <h3>Primitive Data Types</h3>
+            <p>Primitive types represent single values. They include:</p>
+            <ul>
+                <li><strong>String:</strong> Represents text.</li>
+                <li><strong>Number:</strong> Represents numeric values, both integers and floating-point numbers.</li>
+                <li><strong>Boolean:</strong> Represents a true or false value.</li>
+                <li><strong>Undefined:</strong> A variable that is declared but not assigned a value has the value <code>undefined</code>.</li>
+                <li><strong>Null:</strong> Represents the intentional absence of a value or object.</li>
+                <li><strong>Symbol:</strong> Represents a unique identifier, often used for object property keys.</li>
+                <li><strong>BigInt:</strong> Used to represent large integers that cannot be represented by the <code>Number</code> type.</li>
+            </ul>
+
+            <h4>Example of Primitive Data Types:</h4>
+            <pre>
+<code>
+let str = "Hello, World!";    // String
+let num = 42;                // Number
+let isTrue = true;           // Boolean
+let undefinedValue;          // Undefined
+let emptyValue = null;       // Null
+let uniqueSymbol = Symbol("id"); // Symbol
+let bigIntValue = 12345678901234567890n; // BigInt
+</code>
+            </pre>
+
+            <h3>Reference Data Types</h3>
+            <p>Reference types are more complex and are stored by reference. They include:</p>
+            <ul>
+                <li><strong>Object:</strong> A collection of key-value pairs. It can store multiple values of different data types.</li>
+                <li><strong>Array:</strong> A list-like object, which is an ordered collection of values (can be of any data type).</li>
+                <li><strong>Function:</strong> A block of code designed to perform a specific task.</li>
+            </ul>
+
+            <h4>Example of Reference Data Types:</h4>
+            <pre>
+<code>
+    // Object Example
+    let person = {
+        name: "John",
+        age: 30,
+        isStudent: false
+    };
+
+    // Array Example
+    let numbers = [1, 2, 3, 4, 5];
+
+    // Function Example
+    function greet(name) {
+        return "Hello, " + name;
+    }
+    console.log(greet("Alice")); // Outputs: Hello, Alice
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>Summary of Data Types</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>String</td>
+                        <td>Text data</td>
+                        <td>"Hello, World!"</td>
+                    </tr>
+                    <tr>
+                        <td>Number</td>
+                        <td>Integer or floating-point number</td>
+                        <td>42, 3.14</td>
+                    </tr>
+                    <tr>
+                        <td>Boolean</td>
+                        <td>True or False value</td>
+                        <td>true, false</td>
+                    </tr>
+                    <tr>
+                        <td>Undefined</td>
+                        <td>Variable without a value</td>
+                        <td>undefined</td>
+                    </tr>
+                    <tr>
+                        <td>Null</td>
+                        <td>Intentionally no value or object</td>
+                        <td>null</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol</td>
+                        <td>Unique identifier</td>
+                        <td>Symbol('id')</td>
+                    </tr>
+                    <tr>
+                        <td>BigInt</td>
+                        <td>Large integers</td>
+                        <td>12345678901234567890n</td>
+                    </tr>
+                    <tr>
+                        <td>Object</td>
+                        <td>Key-value pairs</td>
+                        <td>{name: "John", age: 30}</td>
+                    </tr>
+                    <tr>
+                        <td>Array</td>
+                        <td>Ordered collection of values</td>
+                        <td>[1, 2, 3]</td>
+                    </tr>
+                    <tr>
+                        <td>Function</td>
+                        <td>Code block that performs a task</td>
+                        <td>function greet() { }</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

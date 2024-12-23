@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Control Flow</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h1>JavaScript Control Flow</h1>
+            <p>Control flow in JavaScript determines the execution order of code. It includes conditional statements, loops, and jump statements for effective flow management.</p>
+        </section>
+
+        <section>
+            <h2>1. Conditional Statements</h2>
+            <p>Conditional statements enable decision-making by executing specific code blocks based on conditions.</p>
+            
+            <h3>if, else, else if</h3>
+            <p>These statements control the execution flow based on the truthiness of conditions.</p>
+            <h4>Syntax:</h4>
+            <pre><code>
+if (condition) {
+    // executes if condition is true
+} else {
+    // executes if condition is false
+}
+            </code></pre>
+
+            <h4>Example:</h4>
+            <pre><code>
+let age = 20;
+
+if (age > 18) {
+    console.log("Adult");
+} else {
+    console.log("Not an adult");
+}
+            </code></pre>
+
+            <h3>else if</h3>
+            <p>Tests multiple conditions sequentially until one evaluates to true.</p>
+            <h4>Syntax:</h4>
+            <pre><code>
+if (condition1) {
+    // executes if condition1 is true
+} else if (condition2) {
+    // executes if condition2 is true
+} else {
+    // executes if none of the above conditions are true
+}
+            </code></pre>
+
+            <h4>Example:</h4>
+            <pre><code>
+let age = 25;
+
+if (age > 60) {
+    console.log("Senior");
+} else if (age > 18) {
+    console.log("Adult");
+} else {
+    console.log("Not an adult");
+}
+            </code></pre>
+
+            <h3>switch</h3>
+            <p>Performs multiple checks on the same value for better readability.</p>
+            <h4>Syntax:</h4>
+            <pre><code>
+switch (expression) {
+    case value1:
+        // executes if expression === value1
+        break;
+    case value2:
+        // executes if expression === value2
+        break;
+    default:
+        // executes if no case matches
+}
+            </code></pre>
+
+            <h4>Example:</h4>
+            <pre><code>
+let day = 2;
+let dayName;
+
+switch (day) {
+    case 1:
+        dayName = "Monday";
+        break;
+    case 2:
+        dayName = "Tuesday";
+        break;
+    case 3:
+        dayName = "Wednesday";
+        break;
+    default:
+        dayName = "Invalid day";
+        break;
+}
+
+console.log(dayName); // Outputs: Tuesday
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>2. Loops</h2>
+            <p>Loops repeat code execution based on conditions.</p>
+
+            <h3>for Loop</h3>
+            <p>Best for fixed iteration count.</p>
+            <h4>Syntax:</h4>
+            <pre><code>
+for (initialization; condition; increment) {
+    // executes while condition is true
+}
+            </code></pre>
+
+            <h4>Example:</h4>
+            <pre><code>
+for (let i = 0; i < 5; i++) {
+    console.log(i); // Outputs: 0 to 4
+}
+            </code></pre>
+
+            <h3>while Loop</h3>
+            <p>Repeats as long as the condition remains true.</p>
+            <h4>Syntax:</h4>
+            <pre><code>
+while (condition) {
+    // executes while condition is true
+}
+            </code></pre>
+
+            <h4>Example:</h4>
+            <pre><code>
+let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
+            </code></pre>
+
+            <h3>do...while Loop</h3>
+            <p>Executes at least once before condition check.</p>
+            <h4>Syntax:</h4>
+            <pre><code>
+do {
+    // executes once and then checks condition
+} while (condition);
+            </code></pre>
+
+            <h4>Example:</h4>
+            <pre><code>
+let i = 0;
+do {
+    console.log(i);
+    i++;
+} while (i < 5);
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>3. Jump Statements</h2>
+            <p>Alter the flow of execution in loops and functions.</p>
+
+            <h3>break</h3>
+            <p>Exits the loop or switch prematurely.</p>
+            <h4>Example:</h4>
+            <pre><code>
+for (let i = 0; i < 10; i++) {
+    if (i === 5) break;
+    console.log(i); // Outputs: 0 to 4
+}
+            </code></pre>
+
+            <h3>continue</h3>
+            <p>Skips the current iteration and proceeds to the next.</p>
+            <h4>Example:</h4>
+            <pre><code>
+for (let i = 0; i < 5; i++) {
+    if (i === 3) continue;
+    console.log(i); // Outputs: 0, 1, 2, 4
+}
+            </code></pre>
+
+            <h3>return</h3>
+            <p>Stops function execution and optionally returns a value.</p>
+            <h4>Example:</h4>
+            <pre><code>
+function checkAge(age) {
+    if (age < 18) return "Not an adult";
+    return "Adult";
+}
+
+console.log(checkAge(20)); // Outputs: Adult
+            </code></pre>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Classes and Constructors</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h1>JavaScript Classes and Constructors</h1>
+            <p>Classes in JavaScript are templates for creating objects. They encapsulate data and methods related to the objects. The <code>constructor</code> method is a special method used for initializing an object’s properties when it is created.</p>
+        </section>
+
+        <section>
+            <h2>1. Basic Class and Constructor</h2>
+            <p>A simple class with a constructor that initializes object properties.</p>
+            <pre>
+<code>
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet() {
+        return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+    }
+}
+
+const person1 = new Person("Alice", 25);
+console.log(person1.greet()); // Outputs: Hello, my name is Alice and I am 25 years old.
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>2. Default Values in Constructor</h2>
+            <p>Using default values for constructor parameters when no value is provided.</p>
+            <pre>
+<code>
+class Car {
+    constructor(brand = "Generic", model = "Model X") {
+        this.brand = brand;
+        this.model = model;
+    }
+
+    describe() {
+        return `This car is a ${this.brand} ${this.model}.`;
+    }
+}
+
+const car1 = new Car();
+const car2 = new Car("Tesla", "Model S");
+console.log(car1.describe()); // Outputs: This car is a Generic Model X.
+console.log(car2.describe()); // Outputs: This car is a Tesla Model S.
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>3. Method Overloading Using Constructors</h2>
+            <p>Simulating method overloading by checking parameters inside the constructor.</p>
+            <pre>
+<code>
+class Rectangle {
+    constructor(width, height) {
+        if (height === undefined) {
+            this.width = width;
+            this.height = width; // Create a square if only one parameter is passed
+        } else {
+            this.width = width;
+            this.height = height;
+        }
+    }
+
+    area() {
+        return this.width * this.height;
+    }
+}
+
+const square = new Rectangle(5);
+const rectangle = new Rectangle(4, 6);
+console.log(square.area()); // Outputs: 25
+console.log(rectangle.area()); // Outputs: 24
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>4. Inheritance and Constructors</h2>
+            <p>Extending a class and using the <code>super</code> keyword to call the parent constructor.</p>
+            <pre>
+<code>
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        return `${this.name} makes a noise.`;
+    }
+}
+
+class Dog extends Animal {
+    constructor(name, breed) {
+        super(name); // Call the parent constructor
+        this.breed = breed;
+    }
+
+    speak() {
+        return `${this.name}, the ${this.breed}, barks.`;
+    }
+}
+
+const dog = new Dog("Buddy", "Golden Retriever");
+console.log(dog.speak()); // Outputs: Buddy, the Golden Retriever, barks.
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>5. Static Methods in Classes</h2>
+            <p>Static methods are called on the class itself, not on an instance of the class.</p>
+            <pre>
+<code>
+class MathUtil {
+    static add(a, b) {
+        return a + b;
+    }
+
+    static multiply(a, b) {
+        return a * b;
+    }
+}
+
+console.log(MathUtil.add(5, 3)); // Outputs: 8
+console.log(MathUtil.multiply(4, 2)); // Outputs: 8
+</code>
+            </pre>
+        </section>
+
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

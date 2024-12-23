@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks in JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h2>What is a Callback?</h2>
+            <p>A callback is a function passed as an argument to another function and is executed after some operation is completed. Callbacks ensure that a function is not executed before a task is finished, but will execute right after the task is completed.</p>
+        </section>
+
+        <section>
+            <h2>Why Use Callbacks?</h2>
+            <ul>
+                <li>To handle asynchronous operations like fetching data from an API.</li>
+                <li>To execute code after a specific task is completed.</li>
+                <li>To improve code modularity and reusability.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Examples of Callbacks</h2>
+
+            <h3>1. Simple Callback</h3>
+            <pre><code>
+&lt;button onclick="executeSimpleCallback()"&gt;Run Simple Callback&lt;/button&gt;
+&lt;p id="simpleCallbackResult"&gt;&lt;/p&gt;
+&lt;script&gt;
+    function displayMessage(message) {
+        document.getElementById("simpleCallbackResult").textContent = message;
+    }
+
+    function executeSimpleCallback() {
+        function callback() {
+            displayMessage("This is a simple callback function!");
+        }
+        callback();
+    }
+&lt;/script&gt;
+            </code></pre>
+
+            <h3>2. Callback with Parameters</h3>
+            <pre><code>
+&lt;button onclick="calculate(5, 10, displaySum)"&gt;Calculate Sum&lt;/button&gt;
+&lt;p id="sumResult"&gt;&lt;/p&gt;
+&lt;script&gt;
+    function calculate(a, b, callback) {
+        const result = a + b;
+        callback(result);
+    }
+
+    function displaySum(sum) {
+        document.getElementById("sumResult").textContent = "Sum: " + sum;
+    }
+&lt;/script&gt;
+            </code></pre>
+
+            <h3>3. Asynchronous Callback</h3>
+            <pre><code>
+&lt;button onclick="fetchData()"&gt;Fetch Data&lt;/button&gt;
+&lt;p id="dataResult"&gt;&lt;/p&gt;
+&lt;script&gt;
+    function fetchData() {
+        setTimeout(function() {
+            document.getElementById("dataResult").textContent = "Data fetched successfully!";
+        }, 2000);
+    }
+&lt;/script&gt;
+            </code></pre>
+
+            <h3>4. Callback in Event Listener</h3>
+            <pre><code>
+&lt;button id="eventCallbackButton"&gt;Click Me&lt;/button&gt;
+&lt;p id="eventCallbackResult"&gt;&lt;/p&gt;
+&lt;script&gt;
+    document.getElementById("eventCallbackButton").addEventListener("click", function() {
+        document.getElementById("eventCallbackResult").textContent = "Button clicked! Callback executed!";
+    });
+&lt;/script&gt;
+            </code></pre>
+
+            <h3>5. Using Callbacks for Array Processing</h3>
+            <pre><code>
+&lt;p&gt;Check the console for array processing results.&lt;/p&gt;
+&lt;script&gt;
+    const numbers = [1, 2, 3, 4, 5];
+
+    function processArray(array, callback) {
+        for (let i = 0; i &lt; array.length; i++) {
+            callback(array[i]);
+        }
+    }
+
+    processArray(numbers, function(number) {
+        console.log("Processing number:", number);
+    });
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Advantages of Callbacks</h2>
+            <ul>
+                <li>Enables asynchronous programming.</li>
+                <li>Makes the code more flexible and reusable.</li>
+                <li>Allows execution of code after a specific task is completed.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Common Use Cases of Callbacks</h2>
+            <ul>
+                <li>Fetching data from APIs (e.g., using <code>XMLHttpRequest</code> or <code>fetch</code>).</li>
+                <li>Event handling in DOM (e.g., <code>addEventListener</code>).</li>
+                <li>Performing operations on array elements (e.g., <code>forEach</code>, <code>map</code>, <code>filter</code>).</li>
+                <li>Handling asynchronous operations like timers and animations.</li>
+            </ul>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

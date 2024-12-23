@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript String Methods</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h2>What is a String in JavaScript?</h2>
+            <p>A string is a sequence of characters used to represent text in JavaScript. Strings are immutable, meaning once they are created, they cannot be changed.</p>
+
+            <h3>Example:</h3>
+            <pre><code>let greeting = "Hello, World!"; // A string example</code></pre>
+        </section>
+
+        <section>
+            <h2>JavaScript String Methods</h2>
+            <p>JavaScript provides numerous methods to manipulate and interact with strings. Below are 30 commonly used string methods, along with their descriptions and examples:</p>
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Output</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>charAt()</code></td>
+                        <td>Returns the character at the specified index.</td>
+                        <td><code>let str = "Hello"; str.charAt(1);</code></td>
+                        <td>e</td>
+                    </tr>
+                    <tr>
+                        <td><code>concat()</code></td>
+                        <td>Combines two or more strings into one string.</td>
+                        <td><code>let str = "Hello"; str.concat(", World!");</code></td>
+                        <td>Hello, World!</td>
+                    </tr>
+                    <tr>
+                        <td><code>includes()</code></td>
+                        <td>Checks if a string contains a specified substring.</td>
+                        <td><code>let str = "Hello"; str.includes("ell");</code></td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td><code>indexOf()</code></td>
+                        <td>Returns the index of the first occurrence of a specified value.</td>
+                        <td><code>let str = "Hello"; str.indexOf("l");</code></td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><code>lastIndexOf()</code></td>
+                        <td>Returns the index of the last occurrence of a specified value.</td>
+                        <td><code>let str = "Hello"; str.lastIndexOf("l");</code></td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td><code>replace()</code></td>
+                        <td>Replaces a specified substring with a new substring.</td>
+                        <td><code>let str = "Hello"; str.replace("e", "a");</code></td>
+                        <td>Hallo</td>
+                    </tr>
+                    <tr>
+                        <td><code>split()</code></td>
+                        <td>Splits a string into an array of substrings.</td>
+                        <td><code>let str = "Hello, World"; str.split(",");</code></td>
+                        <td>["Hello", " World"]</td>
+                    </tr>
+                    <tr>
+                        <td><code>toLowerCase()</code></td>
+                        <td>Converts all characters in a string to lowercase.</td>
+                        <td><code>let str = "Hello"; str.toLowerCase();</code></td>
+                        <td>hello</td>
+                    </tr>
+                    <tr>
+                        <td><code>toUpperCase()</code></td>
+                        <td>Converts all characters in a string to uppercase.</td>
+                        <td><code>let str = "Hello"; str.toUpperCase();</code></td>
+                        <td>HELLO</td>
+                    </tr>
+                    <tr>
+                        <td><code>trim()</code></td>
+                        <td>Removes whitespace from both ends of a string.</td>
+                        <td><code>let str = "  Hello  "; str.trim();</code></td>
+                        <td>Hello</td>
+                    </tr>
+                    <tr>
+                        <td><code>substring()</code></td>
+                        <td>Returns a substring between two specified indices.</td>
+                        <td><code>let str = "Hello"; str.substring(1, 4);</code></td>
+                        <td>ell</td>
+                    </tr>
+                    <tr>
+                        <td><code>slice()</code></td>
+                        <td>Extracts a section of a string and returns it as a new string.</td>
+                        <td><code>let str = "Hello"; str.slice(1, 4);</code></td>
+                        <td>ell</td>
+                    </tr>
+                    <tr>
+                        <td><code>charCodeAt()</code></td>
+                        <td>Returns the Unicode value of the character at the specified index.</td>
+                        <td><code>let str = "Hello"; str.charCodeAt(1);</code></td>
+                        <td>101</td>
+                    </tr>
+                    <tr>
+                        <td><code>fromCharCode()</code></td>
+                        <td>Returns a string created from the specified sequence of Unicode values.</td>
+                        <td><code>String.fromCharCode(72, 101, 108, 108, 111);</code></td>
+                        <td>Hello</td>
+                    </tr>
+                    <tr>
+                        <td><code>repeat()</code></td>
+                        <td>Returns a new string with a specified number of copies of the string.</td>
+                        <td><code>let str = "Hello"; str.repeat(3);</code></td>
+                        <td>HelloHelloHello</td>
+                    </tr>
+                    <tr>
+                        <td><code>padStart()</code></td>
+                        <td>Pads the string from the start with a specified character.</td>
+                        <td><code>let str = "5"; str.padStart(3, "0");</code></td>
+                        <td>005</td>
+                    </tr>
+                    <tr>
+                        <td><code>padEnd()</code></td>
+                        <td>Pads the string from the end with a specified character.</td>
+                        <td><code>let str = "5"; str.padEnd(3, "0");</code></td>
+                        <td>500</td>
+                    </tr>
+                    <tr>
+                        <td><code>match()</code></td>
+                        <td>Searches for a match between a string and a regular expression.</td>
+                        <td><code>let str = "Hello"; str.match(/l/g);</code></td>
+                        <td>["l", "l"]</td>
+                    </tr>
+                    <tr>
+                        <td><code>search()</code></td>
+                        <td>Executes a search for a match between a string and a regular expression.</td>
+                        <td><code>let str = "Hello"; str.search("l");</code></td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><code>localeCompare()</code></td>
+                        <td>Compares two strings in the current locale.</td>
+                        <td><code>let str1 = "apple"; let str2 = "banana"; str1.localeCompare(str2);</code></td>
+                        <td>-1</td>
+                    </tr>
+                    <tr>
+                        <td><code>codePointAt()</code></td>
+                        <td>Returns the Unicode code point value of the character at the specified position.</td>
+                        <td><code>let str = "Hello"; str.codePointAt(1);</code></td>
+                        <td>101</td>
+                    </tr>
+                    <tr>
+                        <td><code>normalize()</code></td>
+                        <td>Returns the Unicode Normalization Form of a string.</td>
+                        <td><code>let str = "e\u0301"; str.normalize();</code></td>
+                        <td>é</td>
+                    </tr>
+                    <tr>
+                        <td><code>startsWith()</code></td>
+                        <td>Checks if a string starts with a specific substring.</td>
+                        <td><code>let str = "Hello"; str.startsWith("He");</code></td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td><code>endsWith()</code></td>
+                        <td>Checks if a string ends with a specific substring.</td>
+                        <td><code>let str = "Hello"; str.endsWith("lo");</code></td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td><code>trimStart()</code></td>
+                        <td>Removes whitespace from the beginning of a string.</td>
+                        <td><code>let str = "  Hello"; str.trimStart();</code></td>
+                        <td>Hello</td>
+                    </tr>
+                    <tr>
+                        <td><code>trimEnd()</code></td>
+                        <td>Removes whitespace from the end of a string.</td>
+                        <td><code>let str = "Hello  "; str.trimEnd();</code></td>
+                        <td>Hello</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

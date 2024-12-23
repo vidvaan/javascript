@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Features and Concepts</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h1>ES6 Features and Concepts</h1>
+            <p>ES6 (ECMAScript 2015) introduced several new features and enhancements to JavaScript, making the language more powerful and easier to work with. This document explores each feature in detail with examples.</p>
+        </section>
+
+        <section>
+            <h2>1. Let and Const</h2>
+            <p>ES6 introduced <code>let</code> and <code>const</code> for variable declarations. These keywords provide block scope and help avoid issues caused by the function-scoped <code>var</code>.</p>
+
+            <h3>let</h3>
+            <p><code>let</code> allows you to declare variables that are limited in scope to the block in which they are defined.</p>
+            <pre>
+<code>
+let count = 10;
+if (true) {
+    let count = 20; // Block scoped
+    console.log(count); // Outputs 20
+}
+console.log(count); // Outputs 10
+</code>
+            </pre>
+
+            <h3>const</h3>
+            <p><code>const</code> is used to declare variables whose values cannot be reassigned.</p>
+            <pre>
+<code>
+const PI = 3.14;
+// PI = 3.1415; // Error: Assignment to constant variable.
+console.log(PI); // Outputs 3.14
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>2. Arrow Functions</h2>
+            <p>Arrow functions provide a concise syntax for writing functions and have a lexical <code>this</code> value.</p>
+            <pre>
+<code>
+// Traditional function
+function add(a, b) {
+    return a + b;
+}
+
+// Arrow function
+const add = (a, b) => a + b;
+console.log(add(5, 3)); // Outputs 8
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>3. Template Literals</h2>
+            <p>Template literals allow for easier string interpolation and multi-line strings.</p>
+            <pre>
+<code>
+const name = "Alice";
+const greeting = `Hello, ${name}!`;
+console.log(greeting); // Outputs: Hello, Alice!
+
+const multiline = `This is a
+multi-line string.`;
+console.log(multiline);
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>4. Destructuring</h2>
+            <p>Destructuring allows you to unpack values from arrays or properties from objects into distinct variables.</p>
+
+            <h3>Array Destructuring</h3>
+            <pre>
+<code>
+const numbers = [1, 2, 3];
+const [first, second] = numbers;
+console.log(first, second); // Outputs 1, 2
+</code>
+            </pre>
+
+            <h3>Object Destructuring</h3>
+            <pre>
+<code>
+const person = { name: "Alice", age: 25 };
+const { name, age } = person;
+console.log(name, age); // Outputs Alice, 25
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>5. Default Parameters</h2>
+            <p>Functions can have default values for parameters if no value is provided.</p>
+            <pre>
+<code>
+function greet(name = "Guest") {
+    return `Hello, ${name}!`;
+}
+console.log(greet()); // Outputs: Hello, Guest!
+console.log(greet("Alice")); // Outputs: Hello, Alice!
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>6. Spread and Rest Operators</h2>
+            <h3>Spread Operator</h3>
+            <p>The spread operator (<code>...</code>) allows you to expand an array or object.</p>
+            <pre>
+<code>
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5];
+console.log(arr2); // Outputs [1, 2, 3, 4, 5]
+</code>
+            </pre>
+
+            <h3>Rest Operator</h3>
+            <p>The rest operator collects all remaining elements into an array.</p>
+            <pre>
+<code>
+function sum(...numbers) {
+    return numbers.reduce((acc, num) => acc + num, 0);
+}
+console.log(sum(1, 2, 3)); // Outputs 6
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>7. Classes</h2>
+            <p>ES6 introduced classes for easier and more structured object-oriented programming in JavaScript.</p>
+            <pre>
+<code>
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet() {
+        return `Hello, my name is ${this.name}.`;
+    }
+}
+const alice = new Person("Alice", 25);
+console.log(alice.greet()); // Outputs: Hello, my name is Alice.
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>8. Modules</h2>
+            <p>ES6 modules allow you to export and import code between files.</p>
+
+            <h3>Exporting</h3>
+            <pre>
+<code>
+// math.js
+export const add = (a, b) => a + b;
+export const subtract = (a, b) => a - b;
+</code>
+            </pre>
+
+            <h3>Importing</h3>
+            <pre>
+<code>
+// app.js
+import { add, subtract } from './math.js';
+console.log(add(5, 3)); // Outputs 8
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>Summary of ES6 Features</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>let and const</td>
+                        <td>Block-scoped variable declarations</td>
+                        <td><code>let x = 10; const y = 20;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Arrow Functions</td>
+                        <td>Concise function syntax with lexical <code>this</code></td>
+                        <td><code>const add = (a, b) => a + b;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Template Literals</td>
+                        <td>String interpolation and multi-line strings</td>
+                        <td><code>`Hello, ${name}`</code></td>
+                    </tr>
+                    <tr>
+                        <td>Destructuring</td>
+                        <td>Unpack values from arrays or objects</td>
+                        <td><code>const { name } = obj;</code></td>
+                    </tr>
+                    <tr>
+                        <td>Classes</td>
+                        <td>Simplified syntax for creating objects</td>
+                        <td><code>class Person { }</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

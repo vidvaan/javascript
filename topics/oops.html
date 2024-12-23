@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object-Oriented Programming in JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h1>Object-Oriented Programming (OOP) in JavaScript</h1>
+            <p>Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects" which contain data (properties) and methods (functions). JavaScript supports OOP concepts such as encapsulation, inheritance, polymorphism, and abstraction.</p>
+        </section>
+
+        <section>
+            <h2>1. Encapsulation</h2>
+            <p>Encapsulation is the mechanism of bundling data (properties) and methods (functions) into a single unit (class or object) and restricting direct access to some of the object's components.</p>
+            <pre>
+<code>
+class Person {
+    constructor(name, age) {
+        this._name = name; // Private property convention
+        this._age = age;
+    }
+
+    getName() {
+        return this._name;
+    }
+
+    setName(name) {
+        this._name = name;
+    }
+
+    getAge() {
+        return this._age;
+    }
+}
+
+const person = new Person("Alice", 30);
+console.log(person.getName()); // Outputs: Alice
+person.setName("Bob");
+console.log(person.getName()); // Outputs: Bob
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>2. Inheritance</h2>
+            <p>Inheritance is a mechanism where one class (child class) inherits the properties and methods of another class (parent class).</p>
+            <pre>
+<code>
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        console.log(`${this.name} makes a sound.`);
+    }
+}
+
+class Dog extends Animal {
+    speak() {
+        console.log(`${this.name} barks.`);
+    }
+}
+
+const dog = new Dog("Rex");
+dog.speak(); // Outputs: Rex barks.
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>3. Polymorphism</h2>
+            <p>Polymorphism allows objects to be treated as instances of their parent class while maintaining their specific behavior.</p>
+            <pre>
+<code>
+class Shape {
+    calculateArea() {
+        console.log("Area calculation is not implemented.");
+    }
+}
+
+class Rectangle extends Shape {
+    constructor(width, height) {
+        super();
+        this.width = width;
+        this.height = height;
+    }
+
+    calculateArea() {
+        return this.width * this.height;
+    }
+}
+
+class Circle extends Shape {
+    constructor(radius) {
+        super();
+        this.radius = radius;
+    }
+
+    calculateArea() {
+        return Math.PI * this.radius * this.radius;
+    }
+}
+
+const shapes = [new Rectangle(5, 10), new Circle(7)];
+shapes.forEach(shape => console.log(shape.calculateArea()));
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>4. Abstraction</h2>
+            <p>Abstraction focuses on exposing only the necessary details and hiding the implementation details.</p>
+            <pre>
+<code>
+class Vehicle {
+    startEngine() {
+        throw new Error("This method must be implemented by subclasses.");
+    }
+}
+
+class Car extends Vehicle {
+    startEngine() {
+        console.log("Car engine started.");
+    }
+}
+
+const car = new Car();
+car.startEngine(); // Outputs: Car engine started.
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>5. Classes and Objects</h2>
+            <p>Classes are blueprints for creating objects. Objects are instances of classes.</p>
+            <pre>
+<code>
+class Student {
+    constructor(name, grade) {
+        this.name = name;
+        this.grade = grade;
+    }
+
+    displayInfo() {
+        console.log(`${this.name} is in grade ${this.grade}.`);
+    }
+}
+
+const student = new Student("Emma", 10);
+student.displayInfo(); // Outputs: Emma is in grade 10.
+</code>
+            </pre>
+        </section>
+
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Arrays and Methods</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h2>What is an Array in JavaScript?</h2>
+            <p>An array is a special variable in JavaScript that can hold more than one value at a time. It is an ordered collection of elements that can store data of various types, including numbers, strings, objects, and even other arrays.</p>
+            <p>Arrays are created using square brackets <code>[]</code> or the <code>Array</code> constructor.</p>
+            
+            <h3>Example:</h3>
+<pre><code>let numbers = [1, 2, 3, 4]; // Array of numbers
+let fruits = ["apple", "banana", "cherry"]; // Array of strings</code>
+</section>
+
+        <section>
+            <h2>JavaScript Array Methods</h2>
+            <p>JavaScript provides numerous methods to manipulate and interact with arrays. Below are 25 commonly used array methods, along with their descriptions and examples:</p>
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Output</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>push()</code></td>
+                        <td>Adds elements to the end of the array.</td>
+                        <td><code>let arr = [1, 2]; arr.push(3);</code></td>
+                        <td>[1, 2, 3]</td>
+                    </tr>
+                    <tr>
+                        <td><code>pop()</code></td>
+                        <td>Removes the last element of the array.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.pop();</code></td>
+                        <td>[1, 2]</td>
+                    </tr>
+                    <tr>
+                        <td><code>shift()</code></td>
+                        <td>Removes the first element of the array.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.shift();</code></td>
+                        <td>[2, 3]</td>
+                    </tr>
+                    <tr>
+                        <td><code>unshift()</code></td>
+                        <td>Adds elements to the beginning of the array.</td>
+                        <td><code>let arr = [2, 3]; arr.unshift(1);</code></td>
+                        <td>[1, 2, 3]</td>
+                    </tr>
+                    <tr>
+                        <td><code>concat()</code></td>
+                        <td>Merges two or more arrays.</td>
+                        <td><code>let arr = [1, 2].concat([3, 4]);</code></td>
+                        <td>[1, 2, 3, 4]</td>
+                    </tr>
+                    <tr>
+                        <td><code>slice()</code></td>
+                        <td>Returns a shallow copy of a portion of an array.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.slice(0, 2);</code></td>
+                        <td>[1, 2]</td>
+                    </tr>
+                    <tr>
+                        <td><code>splice()</code></td>
+                        <td>Adds/removes/replaces elements in the array.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.splice(1, 1, 4);</code></td>
+                        <td>[1, 4, 3]</td>
+                    </tr>
+                    <tr>
+                        <td><code>map()</code></td>
+                        <td>Creates a new array with the results of a function applied to each element.</td>
+                        <td><code>let arr = [1, 2]; arr.map(x => x * 2);</code></td>
+                        <td>[2, 4]</td>
+                    </tr>
+                    <tr>
+                        <td><code>filter()</code></td>
+                        <td>Creates a new array with elements that pass a test.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.filter(x => x > 1);</code></td>
+                        <td>[2, 3]</td>
+                    </tr>
+                    <tr>
+                        <td><code>reduce()</code></td>
+                        <td>Reduces the array to a single value.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.reduce((a, b) => a + b);</code></td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td><code>find()</code></td>
+                        <td>Returns the first element that satisfies a test.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.find(x => x > 1);</code></td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><code>findIndex()</code></td>
+                        <td>Returns the index of the first element that satisfies a test.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.findIndex(x => x > 1);</code></td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td><code>indexOf()</code></td>
+                        <td>Returns the index of the first occurrence of a value.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.indexOf(2);</code></td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td><code>lastIndexOf()</code></td>
+                        <td>Returns the index of the last occurrence of a value.</td>
+                        <td><code>let arr = [1, 2, 3, 2]; arr.lastIndexOf(2);</code></td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td><code>every()</code></td>
+                        <td>Checks if all elements pass a test.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.every(x => x > 0);</code></td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td><code>some()</code></td>
+                        <td>Checks if at least one element passes a test.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.some(x => x > 2);</code></td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td><code>sort()</code></td>
+                        <td>Sorts the elements of the array.</td>
+                        <td><code>let arr = [3, 1, 2]; arr.sort();</code></td>
+                        <td>[1, 2, 3]</td>
+                    </tr>
+                    <tr>
+                        <td><code>reverse()</code></td>
+                        <td>Reverses the array in place.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.reverse();</code></td>
+                        <td>[3, 2, 1]</td>
+                    </tr>
+                    <tr>
+                        <td><code>join()</code></td>
+                        <td>Joins all elements of the array into a string.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.join('-');</code></td>
+                        <td>1-2-3</td>
+                    </tr>
+                    <tr>
+                        <td><code>includes()</code></td>
+                        <td>Checks if an array contains a value.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.includes(2);</code></td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td><code>flat()</code></td>
+                        <td>Flattens a nested array.</td>
+                        <td><code>let arr = [1, [2, 3]]; arr.flat();</code></td>
+                        <td>[1, 2, 3]</td>
+                    </tr>
+                    <tr>
+                        <td><code>fill()</code></td>
+                        <td>Fills the array with a static value.</td>
+                        <td><code>let arr = [1, 2, 3]; arr.fill(0);</code></td>
+                        <td>[0, 0, 0]</td>
+                    </tr>
+                    <tr>
+                        <td><code>forEach()</code></td>
+                        <td>Executes a function on each element of the array.</td>
+                        <td><code>[1, 2, 3].forEach(x => console.log(x));</code></td>
+                        <td>1 2 3</td>
+                    </tr>
+                    <tr>
+                        <td><code>flatMap()</code></td>
+                        <td>Maps and flattens the array in one step.</td>
+                        <td><code>[1, 2].flatMap(x => [x, x * 2]);</code></td>
+                        <td>[1, 2, 2, 4]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>What is Array Iteration?</h2>
+            <p>Array iteration refers to the process of accessing each element of an array, one by one, to perform operations like logging, modifying, or filtering elements. JavaScript provides several ways to iterate through arrays, ranging from simple loops to advanced iteration methods like <code>forEach</code> and <code>map</code>.</p>
+        </section>
+
+        <section>
+            <h2>Array Iteration Methods with Examples</h2>
+
+            <h3>1. Using <code>for</code> Loop</h3>
+            <p>The <code>for</code> loop iterates through the array using an index.</p>
+            <pre><code>
+let arr = [1, 2, 3];
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+}
+// Output:
+// 1
+// 2
+// 3
+            </code></pre>
+
+            <h3>2. Using <code>for...of</code> Loop</h3>
+            <p>The <code>for...of</code> loop iterates through the values of the array.</p>
+            <pre><code>
+let arr = [1, 2, 3];
+for (let value of arr) {
+    console.log(value);
+}
+// Output:
+// 1
+// 2
+// 3
+            </code></pre>
+
+            <h3>3. Using <code>forEach()</code></h3>
+            <p>The <code>forEach()</code> method executes a function once for each array element.</p>
+            <pre><code>
+let arr = [1, 2, 3];
+arr.forEach(value => console.log(value));
+// Output:
+// 1
+// 2
+// 3
+            </code></pre>
+
+            <h3>4. Using <code>map()</code></h3>
+            <p>The <code>map()</code> method creates a new array by applying a function to each element.</p>
+            <pre><code>
+let arr = [1, 2, 3];
+let doubled = arr.map(value => value * 2);
+console.log(doubled);
+// Output:
+// [2, 4, 6]
+            </code></pre>
+
+            <h3>5. Using <code>filter()</code></h3>
+            <p>The <code>filter()</code> method creates a new array containing elements that pass a condition.</p>
+            <pre><code>
+let arr = [1, 2, 3, 4];
+let even = arr.filter(value => value % 2 === 0);
+console.log(even);
+// Output:
+// [2, 4]
+            </code></pre>
+
+            <h3>6. Using <code>reduce()</code></h3>
+            <p>The <code>reduce()</code> method reduces the array to a single value.</p>
+            <pre><code>
+let arr = [1, 2, 3];
+let sum = arr.reduce((acc, value) => acc + value, 0);
+console.log(sum);
+// Output:
+// 6
+            </code></pre>
+
+            <h3>7. Using <code>while</code> Loop</h3>
+            <p>The <code>while</code> loop iterates through the array while a condition is true.</p>
+            <pre><code>
+let arr = [1, 2, 3];
+let i = 0;
+while (i < arr.length) {
+    console.log(arr[i]);
+    i++;
+}
+// Output:
+// 1
+// 2
+// 3
+            </code></pre>
+
+            <h3>8. Using <code>do...while</code> Loop</h3>
+            <p>The <code>do...while</code> loop executes at least once and continues while a condition is true.</p>
+            <pre><code>
+let arr = [1, 2, 3];
+let i = 0;
+do {
+    console.log(arr[i]);
+    i++;
+} while (i < arr.length);
+// Output:
+// 1
+// 2
+// 3
+            </code></pre>
+
+            <h3>9. Using <code>keys()</code></h3>
+            <p>The <code>keys()</code> method returns an iterator for the keys (indexes).</p>
+            <pre><code>
+let arr = [1, 2, 3];
+for (let key of arr.keys()) {
+    console.log(key);
+}
+// Output:
+// 0
+// 1
+// 2
+            </code></pre>
+
+            <h3>10. Using <code>values()</code></h3>
+            <p>The <code>values()</code> method returns an iterator for the values.</p>
+            <pre><code>
+let arr = [1, 2, 3];
+for (let value of arr.values()) {
+    console.log(value);
+}
+// Output:
+// 1
+// 2
+// 3
+            </code></pre>
+
+            <h3>11. Using <code>entries()</code></h3>
+            <p>The <code>entries()</code> method returns an iterator for key-value pairs.</p>
+            <pre><code>
+let arr = [1, 2, 3];
+for (let [index, value] of arr.entries()) {
+    console.log(index, value);
+}
+// Output:
+// 0 1
+// 1 2
+// 2 3
+            </code></pre>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

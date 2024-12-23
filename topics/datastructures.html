@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures in JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h1>Data Structures in JavaScript</h1>
+            <p>Data structures are a fundamental concept in programming that allow for efficient data organization, storage, and manipulation. JavaScript provides various built-in data structures that can be used to solve complex problems effectively. Below is an explanation of key data structures in JavaScript with detailed examples.</p>
+        </section>
+
+        <section>
+            <h2>1. Arrays</h2>
+            <p>Arrays are ordered collections of elements that can hold multiple values of any type. They allow operations like adding, removing, and iterating over elements.</p>
+            <pre>
+<code>
+let fruits = ["Apple", "Banana", "Cherry"];
+fruits.push("Date"); // Adds an element
+console.log(fruits); // ["Apple", "Banana", "Cherry", "Date"]
+fruits.pop(); // Removes the last element
+console.log(fruits); // ["Apple", "Banana", "Cherry"]
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>2. Objects</h2>
+            <p>Objects are collections of key-value pairs where keys are strings or symbols and values can be any type.</p>
+            <pre>
+<code>
+let person = {
+    name: "Alice",
+    age: 25,
+    isStudent: true
+};
+console.log(person.name); // Outputs: Alice
+person.age = 26; // Modifies a property
+console.log(person);
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>3. Sets</h2>
+            <p>Sets are collections of unique values. They are useful for storing distinct elements and checking for existence efficiently.</p>
+            <pre>
+<code>
+let uniqueNumbers = new Set([1, 2, 3, 3]);
+console.log(uniqueNumbers); // Set {1, 2, 3}
+uniqueNumbers.add(4);
+console.log(uniqueNumbers.has(2)); // true
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>4. Maps</h2>
+            <p>Maps are collections of key-value pairs where keys can be of any type. They provide better performance for frequent addition and removal of key-value pairs.</p>
+            <pre>
+<code>
+let map = new Map();
+map.set("name", "Bob");
+map.set("age", 30);
+console.log(map.get("name")); // Bob
+console.log(map.size); // 2
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>5. WeakMap</h2>
+            <p>WeakMaps are similar to Maps but only allow object keys and prevent memory leaks by using weak references.</p>
+            <pre>
+<code>
+let wm = new WeakMap();
+let obj = {};
+wm.set(obj, "value");
+console.log(wm.get(obj)); // value
+obj = null; // The entry is removed from the WeakMap
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>6. WeakSet</h2>
+            <p>WeakSets are similar to Sets but only store objects and have weak references, making them ideal for temporary storage.</p>
+            <pre>
+<code>
+let ws = new WeakSet();
+let item = {};
+ws.add(item);
+console.log(ws.has(item)); // true
+item = null; // The entry is removed from the WeakSet
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>7. Linked Lists</h2>
+            <p>A linked list is a linear data structure where elements (nodes) are connected using pointers.</p>
+            <pre>
+<code>
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+
+    add(value) {
+        let node = new Node(value);
+        if (!this.head) {
+            this.head = node;
+        } else {
+            let current = this.head;
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = node;
+        }
+    }
+}
+let list = new LinkedList();
+list.add(1);
+list.add(2);
+console.log(list.head.value); // 1
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>8. Stacks</h2>
+            <p>A stack is a collection of elements with "Last In, First Out" (LIFO) behavior.</p>
+            <pre>
+<code>
+class Stack {
+    constructor() {
+        this.items = [];
+    }
+
+    push(element) {
+        this.items.push(element);
+    }
+
+    pop() {
+        return this.items.pop();
+    }
+}
+let stack = new Stack();
+stack.push(10);
+stack.push(20);
+console.log(stack.pop()); // 20
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>9. Queues</h2>
+            <p>A queue is a collection of elements with "First In, First Out" (FIFO) behavior.</p>
+            <pre>
+<code>
+class Queue {
+    constructor() {
+        this.items = [];
+    }
+
+    enqueue(element) {
+        this.items.push(element);
+    }
+
+    dequeue() {
+        return this.items.shift();
+    }
+}
+let queue = new Queue();
+queue.enqueue(10);
+queue.enqueue(20);
+console.log(queue.dequeue()); // 10
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>10. Trees</h2>
+            <p>A tree is a hierarchical data structure with nodes connected by edges.</p>
+            <pre>
+<code>
+class TreeNode {
+    constructor(value) {
+        this.value = value;
+        this.children = [];
+    }
+
+    addChild(node) {
+        this.children.push(node);
+    }
+}
+let root = new TreeNode("root");
+let child1 = new TreeNode("child1");
+root.addChild(child1);
+console.log(root.children[0].value); // child1
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>11. Graphs</h2>
+            <p>A graph is a set of nodes connected by edges. It can be directed or undirected.</p>
+            <pre>
+<code>
+class Graph {
+    constructor() {
+        this.adjacencyList = {};
+    }
+
+    addVertex(vertex) {
+        if (!this.adjacencyList[vertex]) {
+            this.adjacencyList[vertex] = [];
+        }
+    }
+
+    addEdge(vertex1, vertex2) {
+        this.adjacencyList[vertex1].push(vertex2);
+    }
+}
+let graph = new Graph();
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addEdge("A", "B");
+console.log(graph.adjacencyList);
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>12. Hash Tables</h2>
+            <p>Hash tables store key-value pairs and use a hash function for indexing.</p>
+            <pre>
+<code>
+class HashTable {
+    constructor(size) {
+        this.buckets = new Array(size);
+    }
+
+    hash(key) {
+        return key.toString().length % this.buckets.length;
+    }
+
+    set(key, value) {
+        let index = this.hash(key);
+        if (!this.buckets[index]) {
+            this.buckets[index] = [];
+        }
+        this.buckets[index].push([key, value]);
+    }
+
+    get(key) {
+        let index = this.hash(key);
+        if (this.buckets[index]) {
+            for (let pair of this.buckets[index]) {
+                if (pair[0] === key) {
+                    return pair[1];
+                }
+            }
+        }
+        return undefined;
+    }
+}
+let ht = new HashTable(10);
+ht.set("name", "Alice");
+console.log(ht.get("name")); // Alice
+</code>
+            </pre>
+        </section>
+
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Introduction and Setup</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h1>JavaScript Introduction</h1>
+            <p>JavaScript is a high-level, interpreted programming language primarily used for building interactive and dynamic web applications. It was created by Brendan Eich in 1995 and has since become one of the core technologies of web development, alongside HTML and CSS. JavaScript enables you to add interactivity, control multimedia, animate elements, and much more on a webpage.</p>
+        </section>
+
+        <section>
+            <h2>Uses of JavaScript</h2>
+            <ul>
+                <li><strong>Web Development:</strong> JavaScript is essential for client-side scripting. It is used to make websites interactive, responsive, and dynamic. It can manipulate the DOM (Document Object Model) of HTML pages, enabling the creation of dynamic interfaces.</li>
+                <li><strong>Server-side Development:</strong> With the advent of Node.js, JavaScript can also be used on the server-side to create scalable network applications.</li>
+                <li><strong>Game Development:</strong> JavaScript can be used to create browser-based games, and libraries like Phaser help in game development.</li>
+                <li><strong>Mobile App Development:</strong> JavaScript can be used to develop mobile applications using frameworks like React Native, Ionic, and more.</li>
+                <li><strong>Data Visualization:</strong> JavaScript can visualize data in web applications through libraries like D3.js.</li>
+                <li><strong>Automation:</strong> JavaScript can automate tasks via scripting, such as web scraping or automating user interactions.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Programming Language vs Scripting Language</h2>
+            <p><strong>Programming Language:</strong> A programming language is a formal set of instructions that can be used to produce a variety of outputs, such as creating software or algorithms. Examples: Java, C++, Python, etc. A programming language can be compiled (translated into machine code) or interpreted (executed by an interpreter).</p>
+            <p><strong>Scripting Language:</strong> A scripting language is a subset of programming languages that are typically interpreted (not compiled) and used to automate specific tasks or control the behavior of other software applications. Examples: JavaScript, Python (also considered a scripting language), PHP, etc.</p>
+            <p><strong>Key Difference:</strong> While both can be used for general-purpose programming, scripting languages are often lightweight, interpreted, and used for automating tasks, typically within a host environment (e.g., a web browser or server).</p>
+        </section>
+
+        <section>
+            <h2>Creating Your First JavaScript Application</h2>
+            <p>Let's create a simple JavaScript application that displays a message in the browser and through Node.js.</p>
+
+            <h3>1. Run JavaScript with a Browser</h3>
+            <p>Create an HTML file with embedded JavaScript:</p>
+            <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;First JavaScript App&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;button onclick="displayMessage()"&gt;Click me&lt;/button&gt;
+
+    &lt;script&gt;
+        function displayMessage() {
+            alert("Hello, this is your first JS application!");
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code> </pre>
+            <p>Instructions:</p>
+            <ul>
+                <li>Save the file as <code>index.html</code>.</li>
+                <li>Open the <code>index.html</code> file in a web browser.</li>
+                <li>The page will display a "Click me" button. When clicked, a JavaScript alert will appear.</li>
+            </ul>
+
+            <h3>2. Run JavaScript with Node.js and VSCode Terminal</h3>
+            <p>Follow these steps to run JavaScript using Node.js in the VSCode terminal:</p>
+            <pre><code>
+&lt;script&gt;
+console.log("Hello, World!");
+&lt;/script&gt;
+</code> </pre>
+            <p>Instructions:</p>
+            <ul>
+                <li>Install Node.js if not already done from <a href="https://nodejs.org/">here</a>.</li>
+                <li>Open VSCode and create a new file, say <code>app.js</code>.</li>
+                <li>In the terminal, navigate to the folder where <code>app.js</code> is located.</li>
+                <li>Run the following command:</li>
+                <pre><code>node app.js</code></pre>
+                <li>The terminal will display <code>Hello, World!</code>.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Generate HTML with JavaScript</h2>
+            <p>You can dynamically generate HTML content using JavaScript. Here's an example of how to create HTML elements using JavaScript and display them within a webpage.</p>
+
+            <h3>Example: Dynamic HTML Generation</h3>
+            <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Dynamic HTML Generation&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Generated Content&lt;/h1&gt;
+    &lt;div id="dynamicContent"&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+        const content = `
+            &lt;p&gt;This content was generated dynamically using JavaScript!&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Item 1&lt;/li&gt;
+                &lt;li&gt;Item 2&lt;/li&gt;
+                &lt;li&gt;Item 3&lt;/li&gt;
+            &lt;/ul&gt;
+        `;
+        document.getElementById("dynamicContent").innerHTML = content;
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            <p>Steps:</p>
+            <ul>
+                <li>Save the file as <code>dynamic.html</code>.</li>
+                <li>Open it in a browser.</li>
+                <li>The content within the <code>&lt;div id="dynamicContent"&gt;</code> will be dynamically generated by JavaScript.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

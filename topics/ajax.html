@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Calls Examples</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h2>What is AJAX?</h2>
+            <p>AJAX (Asynchronous JavaScript and XML) is a technique used to create fast and dynamic web pages. It allows web applications to send and receive data from the server asynchronously, without reloading the entire page. AJAX is widely used to improve user experience by updating parts of a web page dynamically.</p>
+            <h3>Key Features of AJAX:</h3>
+            <ul>
+                <li>Asynchronous communication with the server.</li>
+                <li>Uses XMLHttpRequest or Fetch API to send and receive data.</li>
+                <li>Supports data formats like JSON, XML, HTML, and plain text.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>What is a REST API?</h2>
+            <p>A REST (Representational State Transfer) API is a web service that follows REST architectural principles. It allows clients to interact with a server through a standard set of HTTP methods like GET, POST, PUT, DELETE, etc.</p>
+            <h3>Key Features of REST API:</h3>
+            <ul>
+                <li>Stateless communication: Each request is independent and contains all the necessary information.</li>
+                <li>Supports multiple data formats (e.g., JSON, XML).</li>
+                <li>Uses standard HTTP methods (GET, POST, PUT, DELETE, etc.).</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>API Calls with JSONPlaceholder</h2>
+            <p><a href="https://jsonplaceholder.typicode.com" target="_blank">JSONPlaceholder</a> is a free fake online REST API for testing and prototyping. Below is a table of available API endpoints:</p>
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>HTTP Method</th>
+                        <th>Endpoint</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/posts</td>
+                        <td>Fetch all posts.</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/posts/{id}</td>
+                        <td>Fetch a specific post by ID.</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/posts</td>
+                        <td>Create a new post.</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td>/posts/{id}</td>
+                        <td>Update an existing post by ID.</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td>/posts/{id}</td>
+                        <td>Delete a post by ID.</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/comments</td>
+                        <td>Fetch all comments.</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/comments/{id}</td>
+                        <td>Fetch a specific comment by ID.</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/comments</td>
+                        <td>Create a new comment.</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/albums</td>
+                        <td>Fetch all albums.</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/albums/{id}</td>
+                        <td>Fetch a specific album by ID.</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/users</td>
+                        <td>Fetch all users.</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>/users/{id}</td>
+                        <td>Fetch a specific user by ID.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>What is Postman?</h2>
+            <p>Postman is a popular tool for testing APIs. It provides a user-friendly interface for sending requests to an API and analyzing the responses. Postman supports all HTTP methods and allows for creating collections, environment variables, and automated tests.</p>
+            <h3>Steps to Test APIs with Postman:</h3>
+            <ol>
+                <li>Install Postman from <a href="https://www.postman.com/" target="_blank">here</a>.</li>
+                <li>Open Postman and create a new request.</li>
+                <li>Select the HTTP method (e.g., GET, POST, PUT, DELETE).</li>
+                <li>Enter the API endpoint (e.g., <code>https://jsonplaceholder.typicode.com/posts</code>).</li>
+                <li>Add headers, query parameters, or request body if needed.</li>
+                <li>Click the "Send" button to execute the request.</li>
+                <li>Analyze the response in the Postman interface.</li>
+            </ol>
+        </section>
+        <!-- GET Request Example -->
+        <section>
+            <h2>1. GET Request</h2>
+            <p>This example demonstrates a GET request to fetch data from a server.</p>
+            <pre><code>
+fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .then(response =&gt; response.json())
+    .then(data =&gt; console.log(data))
+    .catch(error =&gt; console.error('Error:', error));
+            </code></pre>
+            <button onclick="makeGetRequest()">Make GET Request</button>
+            <div id="getResponse" class="response"></div>
+        </section>
+
+        <!-- POST Request Example -->
+        <section>
+            <h2>2. POST Request</h2>
+            <p>This example demonstrates a POST request to send data to a server.</p>
+            <pre><code>
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        title: 'foo',
+        body: 'bar',
+        userId: 1
+    })
+})
+    .then(response =&gt; response.json())
+    .then(data =&gt; console.log(data))
+    .catch(error =&gt; console.error('Error:', error));
+            </code></pre>
+            <button onclick="makePostRequest()">Make POST Request</button>
+            <div id="postResponse" class="response"></div>
+        </section>
+
+        <!-- PUT Request Example -->
+        <section>
+            <h2>3. PUT Request</h2>
+            <p>This example demonstrates a PUT request to update data on a server.</p>
+            <pre><code>
+fetch('https://jsonplaceholder.typicode.com/posts/1', {
+    method: 'PUT',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        id: 1,
+        title: 'Updated Title',
+        body: 'Updated body content',
+        userId: 1
+    })
+})
+    .then(response =&gt; response.json())
+    .then(data =&gt; console.log(data))
+    .catch(error =&gt; console.error('Error:', error));
+            </code></pre>
+            <button onclick="makePutRequest()">Make PUT Request</button>
+            <div id="putResponse" class="response"></div>
+        </section>
+
+        <!-- DELETE Request Example -->
+        <section>
+            <h2>4. DELETE Request</h2>
+            <p>This example demonstrates a DELETE request to remove data from a server.</p>
+            <pre><code>
+fetch('https://jsonplaceholder.typicode.com/posts/1', {
+    method: 'DELETE'
+})
+    .then(response =&gt; response.json())
+    .then(data =&gt; console.log(data))
+    .catch(error =&gt; console.error('Error:', error));
+            </code></pre>
+            <button onclick="makeDeleteRequest()">Make DELETE Request</button>
+            <div id="deleteResponse" class="response"></div>
+        </section>
+
+        <!-- OPTIONS Request Example -->
+        <section>
+            <h2>5. OPTIONS Request</h2>
+            <p>This example demonstrates an OPTIONS request to check available HTTP methods.</p>
+            <pre><code>
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'OPTIONS'
+})
+    .then(response =&gt; console.log(response.headers))
+    .catch(error =&gt; console.error('Error:', error));
+            </code></pre>
+            <button onclick="makeOptionsRequest()">Make OPTIONS Request</button>
+            <div id="optionsResponse" class="response"></div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+
+    <script>
+        function makeGetRequest() {
+            fetch('https://jsonplaceholder.typicode.com/posts/1')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('getResponse').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function makePostRequest() {
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: 'foo',
+                    body: 'bar',
+                    userId: 1
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('postResponse').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function makePutRequest() {
+            fetch('https://jsonplaceholder.typicode.com/posts/1', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: 1,
+                    title: 'Updated Title',
+                    body: 'Updated body content',
+                    userId: 1
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('putResponse').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function makeDeleteRequest() {
+            fetch('https://jsonplaceholder.typicode.com/posts/1', {
+                method: 'DELETE'
+            })
+                .then(response => {
+                    document.getElementById('deleteResponse').textContent = 'Resource deleted successfully';
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function makeOptionsRequest() {
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'OPTIONS'
+            })
+                .then(response => {
+                    document.getElementById('optionsResponse').textContent = 'OPTIONS request sent successfully';
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

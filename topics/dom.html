@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation in JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h2>What is DOM Manipulation?</h2>
+            <p>The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can manipulate the structure, style, and content of web pages. DOM manipulation refers to modifying the structure, style, and content of the HTML document dynamically using JavaScript.</p>
+        </section>
+
+        <section>
+            <h2>Methods of DOM Manipulation</h2>
+            <p>There are several methods available for interacting with and manipulating the DOM in JavaScript:</p>
+            <ul>
+                <li><strong>Selecting Elements:</strong> Accessing the elements in the DOM to interact with them.</li>
+                <li><strong>Modifying Content:</strong> Changing the content inside the selected elements.</li>
+                <li><strong>Modifying Attributes:</strong> Changing the attributes of an element (e.g., class, id, src, etc.).</li>
+                <li><strong>Creating and Removing Elements:</strong> Dynamically adding or removing elements from the DOM.</li>
+                <li><strong>Event Handling:</strong> Attaching and handling events on elements.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Selecting Elements in the DOM</h2>
+            <p>JavaScript provides several methods to select elements in the DOM:</p>
+
+            <h3>getElementById</h3>
+            <pre><code>document.getElementById('elementId');</code></pre>
+            <p>This method selects an element based on its unique ID.</p>
+
+            <h3>getElementsByClassName</h3>
+            <pre><code>document.getElementsByClassName('className');</code></pre>
+            <p>This method selects all elements with the specified class name.</p>
+
+            <h3>getElementsByTagName</h3>
+            <pre><code>document.getElementsByTagName('tagName');</code></pre>
+            <p>This method selects all elements with the specified tag name (e.g., 'div', 'p').</p>
+
+            <h3>querySelector</h3>
+            <pre><code>document.querySelector('.className');</code></pre>
+            <p>This method selects the first element that matches the specified CSS selector (class, id, etc.).</p>
+
+            <h3>querySelectorAll</h3>
+            <pre><code>document.querySelectorAll('.className');</code></pre>
+            <p>This method selects all elements that match the specified CSS selector.</p>
+        </section>
+
+        <section>
+            <h2>Modifying Content</h2>
+            <p>Once an element is selected, its content can be modified using JavaScript:</p>
+
+            <h3>innerHTML</h3>
+            <pre><code>element.innerHTML = 'New content';</code></pre>
+            <p>This property allows you to change the HTML content inside an element.</p>
+
+            <h3>textContent</h3>
+            <pre><code>element.textContent = 'New text';</code></pre>
+            <p>This property allows you to modify the text content of an element, excluding HTML tags.</p>
+
+            <h3>innerText</h3>
+            <pre><code>element.innerText = 'New text';</code></pre>
+            <p>This property is similar to <code>textContent</code>, but it takes into account styles like hidden text.</p>
+        </section>
+
+        <section>
+            <h2>Modifying Attributes</h2>
+            <p>Attributes of elements like <code>id</code>, <code>class</code>, <code>src</code>, etc., can be modified using JavaScript:</p>
+
+            <h3>getAttribute</h3>
+            <pre><code>element.getAttribute('attribute');</code></pre>
+            <p>This method is used to retrieve the value of an attribute.</p>
+
+            <h3>setAttribute</h3>
+            <pre><code>element.setAttribute('attribute', 'value');</code></pre>
+            <p>This method sets the value of a specific attribute on an element.</p>
+
+            <h3>removeAttribute</h3>
+            <pre><code>element.removeAttribute('attribute');</code></pre>
+            <p>This method removes an attribute from an element.</p>
+        </section>
+
+        <section>
+            <h2>Creating and Removing Elements</h2>
+            <p>JavaScript also allows you to dynamically create and remove elements from the DOM:</p>
+
+            <h3>Creating an Element</h3>
+            <pre><code>
+let newElement = document.createElement('div');
+newElement.textContent = 'New Div Element';
+document.body.appendChild(newElement);
+</code></pre>
+            <p>This code creates a new <code>div</code> element, sets its text content, and appends it to the body of the document.</p>
+
+            <h3>Removing an Element</h3>
+            <pre><code>
+let elementToRemove = document.getElementById('elementId');
+elementToRemove.parentNode.removeChild(elementToRemove);
+</code></pre>
+            <p>This code removes the element with the specified ID from the DOM.</p>
+        </section>
+
+        <section>
+            <h2>Event Handling in DOM Manipulation</h2>
+            <p>JavaScript allows you to attach event listeners to elements, enabling dynamic interaction with the user. Event handling is essential for DOM manipulation:</p>
+
+            <h3>Adding an Event Listener</h3>
+            <pre><code>element.addEventListener('event', function);</code></pre>
+            <p>Use this method to attach an event listener to an element. The event is triggered when the specified action occurs (e.g., click, mouseover).</p>
+
+            <h3>Removing an Event Listener</h3>
+            <pre><code>element.removeEventListener('event', function);</code></pre>
+            <p>This method removes an event listener that was previously attached to an element.</p>
+        </section>
+
+        <section>
+            <h2>Advanced DOM Manipulation Techniques</h2>
+            <p>Here are some advanced techniques to work with the DOM:</p>
+
+            <h3>Cloning Elements</h3>
+            <pre><code>
+let originalElement = document.getElementById('elementId');
+let clonedElement = originalElement.cloneNode(true);
+document.body.appendChild(clonedElement);
+</code></pre>
+            <p>This method creates a copy of an element. The <code>true</code> argument ensures that the cloned element includes child nodes.</p>
+
+            <h3>Traversing the DOM</h3>
+            <pre><code>
+let parent = element.parentNode;
+let children = element.children;
+let nextSibling = element.nextElementSibling;
+</code></pre>
+            <p>You can use these properties to navigate through the DOM and find related elements.</p>
+
+            <h3>Animating Elements</h3>
+            <pre><code>
+element.style.transition = 'all 0.5s ease';
+element.style.transform = 'scale(1.2)';
+</code></pre>
+            <p>CSS transitions and JavaScript can be combined to animate DOM elements.</p>
+        </section>
+
+        <section>
+            <h2>DOM Manipulation Table</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>getElementById</td>
+                        <td>Selects an element by its unique ID.</td>
+                    </tr>
+                    <tr>
+                        <td>getElementsByClassName</td>
+                        <td>Selects elements by their class name.</td>
+                    </tr>
+                    <tr>
+                        <td>getElementsByTagName</td>
+                        <td>Selects elements by their tag name.</td>
+                    </tr>
+                    <tr>
+                        <td>querySelector</td>
+                        <td>Selects the first element matching a CSS selector.</td>
+                    </tr>
+                    <tr>
+                        <td>querySelectorAll</td>
+                        <td>Selects all elements matching a CSS selector.</td>
+                    </tr>
+                    <tr>
+                        <td>createElement</td>
+                        <td>Creates a new element of a specified type.</td>
+                    </tr>
+                    <tr>
+                        <td>appendChild</td>
+                        <td>Adds a new child element to a parent element.</td>
+                    </tr>
+                    <tr>
+                        <td>removeChild</td>
+                        <td>Removes a child element from a parent element.</td>
+                    </tr>
+                    <tr>
+                        <td>addEventListener</td>
+                        <td>Attaches an event listener to an element.</td>
+                    </tr>
+                    <tr>
+                        <td>removeEventListener</td>
+                        <td>Removes an event listener from an element.</td>
+                    </tr>
+                    <tr>
+                        <td>setAttribute</td>
+                        <td>Sets the value of an attribute on an element.</td>
+                    </tr>
+                    <tr>
+                        <td>getAttribute</td>
+                        <td>Gets the value of an attribute from an element.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
+
+

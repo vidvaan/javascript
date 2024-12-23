@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Examples</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h2>1. Change Text Content</h2>
+            <pre><code>
+&lt;p id="example1"&gt;Original Text&lt;/p&gt;
+&lt;button onclick="changeText()"&gt;Change Text&lt;/button&gt;
+&lt;script&gt;
+    function changeText() {
+        document.getElementById("example1").textContent = "Updated Text";
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>2. Change Element Style</h2>
+            <pre><code>
+&lt;p id="example2"&gt;Style me!&lt;/p&gt;
+&lt;button onclick="changeStyle()"&gt;Change Style&lt;/button&gt;
+&lt;script&gt;
+    function changeStyle() {
+        document.getElementById("example2").style.color = "blue";
+        document.getElementById("example2").style.fontSize = "20px";
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>3. Add a Class</h2>
+            <pre><code>
+&lt;div id="example3"&gt;Add a class to me&lt;/div&gt;
+&lt;button onclick="addClass()"&gt;Add Class&lt;/button&gt;
+&lt;script&gt;
+    function addClass() {
+        document.getElementById("example3").classList.add("highlight");
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>4. Remove a Class</h2>
+            <pre><code>
+&lt;div id="example4" class="highlight"&gt;Remove my class&lt;/div&gt;
+&lt;button onclick="removeClass()"&gt;Remove Class&lt;/button&gt;
+&lt;script&gt;
+    function removeClass() {
+        document.getElementById("example4").classList.remove("highlight");
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>5. Toggle a Class</h2>
+            <pre><code>
+&lt;div id="example5"&gt;Toggle my class&lt;/div&gt;
+&lt;button onclick="toggleClass()"&gt;Toggle Class&lt;/button&gt;
+&lt;script&gt;
+    function toggleClass() {
+        document.getElementById("example5").classList.toggle("highlight");
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>6. Add an Element</h2>
+            <pre><code>
+&lt;div id="example6-container"&gt;Existing Element&lt;/div&gt;
+&lt;button onclick="addElement()"&gt;Add Element&lt;/button&gt;
+&lt;script&gt;
+    function addElement() {
+        let newElement = document.createElement("div");
+        newElement.textContent = "New Element";
+        document.getElementById("example6-container").appendChild(newElement);
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>7. Remove an Element</h2>
+            <pre><code>
+&lt;div id="example7-container"&gt;
+    &lt;div id="example7"&gt;Remove me!&lt;/div&gt;
+&lt;/div&gt;
+&lt;button onclick="removeElement()"&gt;Remove Element&lt;/button&gt;
+&lt;script&gt;
+    function removeElement() {
+        let element = document.getElementById("example7");
+        element.parentNode.removeChild(element);
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>8. Modify an Attribute</h2>
+            <pre><code>
+&lt;img id="example8" src="image1.jpg" alt="Image"&gt;
+&lt;button onclick="modifyAttribute()"&gt;Change Image&lt;/button&gt;
+&lt;script&gt;
+    function modifyAttribute() {
+        document.getElementById("example8").setAttribute("src", "image2.jpg");
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>9. Add an Event Listener</h2>
+            <pre><code>
+&lt;button id="example9"&gt;Click Me&lt;/button&gt;
+&lt;script&gt;
+    document.getElementById("example9").addEventListener("click", function () {
+        alert("Button Clicked!");
+    });
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>10. Remove an Event Listener</h2>
+            <pre><code>
+&lt;button id="example10"&gt;Click Me (Listener will be removed)&lt;/button&gt;
+&lt;script&gt;
+    function clickHandler() {
+        alert("Listener Active");
+    }
+    const button = document.getElementById("example10");
+    button.addEventListener("click", clickHandler);
+    setTimeout(() => {
+        button.removeEventListener("click", clickHandler);
+    }, 5000);
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>11. Clone an Element</h2>
+            <pre><code>
+&lt;div id="example11"&gt;Clone me!&lt;/div&gt;
+&lt;button onclick="cloneElement()"&gt;Clone Element&lt;/button&gt;
+&lt;script&gt;
+    function cloneElement() {
+        let original = document.getElementById("example11");
+        let clone = original.cloneNode(true);
+        document.body.appendChild(clone);
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>12. Replace an Element</h2>
+            <pre><code>
+&lt;div id="example12-container"&gt;
+    &lt;div id="example12"&gt;Replace me&lt;/div&gt;
+&lt;/div&gt;
+&lt;button onclick="replaceElement()"&gt;Replace Element&lt;/button&gt;
+&lt;script&gt;
+    function replaceElement() {
+        let newElement = document.createElement("div");
+        newElement.textContent = "I replaced the old one!";
+        let container = document.getElementById("example12-container");
+        let oldElement = document.getElementById("example12");
+        container.replaceChild(newElement, oldElement);
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+         
+        <section>
+            <h2>13. Insert HTML Before an Element</h2>
+            <pre><code>
+&lt;div id="example13"&gt;Target Element&lt;/div&gt;
+&lt;button onclick="insertHTMLBefore()"&gt;Insert HTML Before&lt;/button&gt;
+&lt;script&gt;
+    function insertHTMLBefore() {
+        let target = document.getElementById("example13");
+        target.insertAdjacentHTML("beforebegin", "&lt;p&gt;Inserted Before&lt;/p&gt;");
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>14. Insert HTML After an Element</h2>
+            <pre><code>
+&lt;div id="example14"&gt;Target Element&lt;/div&gt;
+&lt;button onclick="insertHTMLAfter()"&gt;Insert HTML After&lt;/button&gt;
+&lt;script&gt;
+    function insertHTMLAfter() {
+        let target = document.getElementById("example14");
+        target.insertAdjacentHTML("afterend", "&lt;p&gt;Inserted After&lt;/p&gt;");
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>15. Animate an Element</h2>
+            <pre><code>
+&lt;div id="example15" style="width: 100px; height: 100px; background: red;"&gt;&lt;/div&gt;
+&lt;button onclick="animateElement()"&gt;Animate&lt;/button&gt;
+&lt;script&gt;
+    function animateElement() {
+        let element = document.getElementById("example15");
+        element.style.transition = "transform 1s";
+        element.style.transform = "translateX(200px)";
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>16. Change Multiple Styles</h2>
+            <pre><code>
+&lt;div id="example16"&gt;Style Me&lt;/div&gt;
+&lt;button onclick="changeMultipleStyles()"&gt;Change Styles&lt;/button&gt;
+&lt;script&gt;
+    function changeMultipleStyles() {
+        let element = document.getElementById("example16");
+        Object.assign(element.style, {
+            color: "white",
+            backgroundColor: "black",
+            fontSize: "20px",
+            padding: "10px"
+        });
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>17. Append Multiple Elements</h2>
+            <pre><code>
+&lt;div id="example17-container"&gt;&lt;/div&gt;
+&lt;button onclick="appendMultipleElements()"&gt;Append Elements&lt;/button&gt;
+&lt;script&gt;
+    function appendMultipleElements() {
+        let container = document.getElementById("example17-container");
+        for (let i = 1; i &lt;= 3; i++) {
+            let newElement = document.createElement("p");
+            newElement.textContent = "Element " + i;
+            container.appendChild(newElement);
+        }
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>18. Disable a Button</h2>
+            <pre><code>
+&lt;button id="example18"&gt;Click Me&lt;/button&gt;
+&lt;button onclick="disableButton()"&gt;Disable Button&lt;/button&gt;
+&lt;script&gt;
+    function disableButton() {
+        document.getElementById("example18").disabled = true;
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>19. Toggle Visibility</h2>
+            <pre><code>
+&lt;div id="example19"&gt;Toggle My Visibility&lt;/div&gt;
+&lt;button onclick="toggleVisibility()"&gt;Toggle Visibility&lt;/button&gt;
+&lt;script&gt;
+    function toggleVisibility() {
+        let element = document.getElementById("example19");
+        element.style.display = element.style.display === "none" ? "block" : "none";
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>20. Create and Append Table Rows</h2>
+            <pre><code>
+&lt;table id="example20" border="1"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Age&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;button onclick="addTableRows()"&gt;Add Rows&lt;/button&gt;
+&lt;script&gt;
+    function addTableRows() {
+        let table = document.getElementById("example20").getElementsByTagName("tbody")[0];
+        let data = [
+            { name: "Alice", age: 25 },
+            { name: "Bob", age: 30 }
+        ];
+        data.forEach(item =&gt; {
+            let row = document.createElement("tr");
+            let nameCell = document.createElement("td");
+            nameCell.textContent = item.name;
+            let ageCell = document.createElement("td");
+            ageCell.textContent = item.age;
+            row.appendChild(nameCell);
+            row.appendChild(ageCell);
+            table.appendChild(row);
+        });
+    }
+&lt;/script&gt;
+            </code></pre>
+        </section>
+
+        <!-- Add similar sections for remaining use cases -->
+    </main>
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

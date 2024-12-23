@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exception Handling in JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section>
+            <h1>Exception Handling in JavaScript</h1>
+            <p>Exception handling in JavaScript allows developers to handle runtime errors gracefully and maintain the flow of the program. JavaScript provides the <code>try</code>, <code>catch</code>, <code>finally</code>, and <code>throw</code> statements for error handling.</p>
+        </section>
+
+        <section>
+            <h2>1. The <code>try</code> and <code>catch</code> Statements</h2>
+            <p>The <code>try</code> block contains code that may throw an error, while the <code>catch</code> block handles the error if it occurs.</p>
+            <pre>
+<code>
+try {
+    let result = 10 / 0;
+    console.log(result); // Outputs: Infinity, no error here
+    let invalid = JSON.parse("invalid JSON"); // This will throw an error
+} catch (error) {
+    console.log("An error occurred:", error.message); // Outputs the error message
+}
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>2. The <code>finally</code> Block</h2>
+            <p>The <code>finally</code> block contains code that will always execute, regardless of whether an error occurs or not.</p>
+            <pre>
+<code>
+try {
+    console.log("Trying...");
+    throw new Error("Something went wrong");
+} catch (error) {
+    console.log("Caught an error:", error.message);
+} finally {
+    console.log("This will always run.");
+}
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>3. Throwing Custom Errors</h2>
+            <p>You can throw custom errors using the <code>throw</code> statement. This is useful for handling specific conditions in your code.</p>
+            <pre>
+<code>
+function divide(a, b) {
+    if (b === 0) {
+        throw new Error("Division by zero is not allowed.");
+    }
+    return a / b;
+}
+
+try {
+    console.log(divide(10, 0));
+} catch (error) {
+    console.log("Custom error:", error.message);
+}
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>4. Nested <code>try</code>-<code>catch</code> Blocks</h2>
+            <p>You can nest <code>try</code>-<code>catch</code> blocks to handle different levels of exceptions.</p>
+            <pre>
+<code>
+try {
+    try {
+        let data = JSON.parse("invalid JSON");
+    } catch (innerError) {
+        console.log("Inner error caught:", innerError.message);
+        throw new Error("Outer error due to inner error");
+    }
+} catch (outerError) {
+    console.log("Outer error caught:", outerError.message);
+}
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>5. Using <code>try</code>-<code>catch</code> with Promises</h2>
+            <p>While working with promises, you can use <code>try</code>-<code>catch</code> inside <code>async</code> functions to handle errors.</p>
+            <pre>
+<code>
+async function fetchData() {
+    try {
+        let response = await fetch("https://api.example.com/data");
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        let data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.log("Error fetching data:", error.message);
+    }
+}
+
+fetchData();
+</code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>Summary</h2>
+            <p>JavaScript's exception handling mechanism helps improve the robustness of your code by handling runtime errors gracefully. Use <code>try</code>-<code>catch</code> for synchronous errors, <code>finally</code> for cleanup code, and <code>throw</code> for custom error messages.</p>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

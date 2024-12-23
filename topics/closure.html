@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures in JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    <main>
+        <section>
+            <h2>What is a Closure?</h2>
+            <p>A closure is a function that remembers the variables from its lexical scope even when the function is executed outside that scope. Closures are created every time a function is defined, allowing the function to "close over" its environment.</p>
+        </section>
+
+        <section>
+            <h2>Uses of Closures</h2>
+            <ul>
+                <li>Maintaining state between function calls</li>
+                <li>Creating private variables</li>
+                <li>Encapsulating functionalities</li>
+                <li>Implementing callbacks and event handlers</li>
+                <li>Improving code modularity and reusability</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Use Cases with Examples</h2>
+
+            <h3>1. Maintaining State</h3>
+            <pre><code>
+&lt;button onclick="incrementCounter()"&gt;Increment Counter&lt;/button&gt;
+&lt;p id="counterDisplay"&gt;Counter: 0&lt;/p&gt;
+&lt;script&gt;
+    function createCounter() {
+        let counter = 0;
+        return function() {
+            counter++;
+            document.getElementById("counterDisplay").textContent = "Counter: " + counter;
+        };
+    }
+    const incrementCounter = createCounter();
+&lt;/script&gt;
+            </code></pre>
+
+            <h3>2. Creating Private Variables</h3>
+            <pre><code>
+&lt;button onclick="showSecret()"&gt;Show Secret&lt;/button&gt;
+&lt;p id="secretDisplay"&gt;&lt;/p&gt;
+&lt;script&gt;
+    function secretKeeper() {
+        let secret = "This is a private message!";
+        return function() {
+            document.getElementById("secretDisplay").textContent = secret;
+        };
+    }
+    const showSecret = secretKeeper();
+&lt;/script&gt;
+            </code></pre>
+
+            <h3>3. Encapsulation of Functionality</h3>
+            <pre><code>
+&lt;button onclick="toggleVisibility()"&gt;Toggle Visibility&lt;/button&gt;
+&lt;p id="toggleText" style="display: none;"&gt;This text is toggled!&lt;/p&gt;
+&lt;script&gt;
+    function toggler() {
+        let isVisible = false;
+        return function() {
+            const element = document.getElementById("toggleText");
+            isVisible = !isVisible;
+            element.style.display = isVisible ? "block" : "none";
+        };
+    }
+    const toggleVisibility = toggler();
+&lt;/script&gt;
+            </code></pre>
+
+            <h3>4. Delayed Execution (Closures with Timers)</h3>
+            <pre><code>
+&lt;button onclick="startTimer()"&gt;Start Timer&lt;/button&gt;
+&lt;p id="timerDisplay"&gt;&lt;/p&gt;
+&lt;script&gt;
+    function timer() {
+        let seconds = 0;
+        return function() {
+            seconds++;
+            document.getElementById("timerDisplay").textContent = "Time elapsed: " + seconds + "s";
+        };
+    }
+    const startTimer = (function() {
+        const updateTimer = timer();
+        return function() {
+            setInterval(updateTimer, 1000);
+        };
+    })();
+&lt;/script&gt;
+            </code></pre>
+
+            <h3>5. Implementing a Factory Function</h3>
+            <pre><code>
+&lt;button onclick="greetJohn()"&gt;Greet John&lt;/button&gt;
+&lt;button onclick="greetJane()"&gt;Greet Jane&lt;/button&gt;
+&lt;p id="greetMessage"&gt;&lt;/p&gt;
+&lt;script&gt;
+    function greeter(name) {
+        return function() {
+            document.getElementById("greetMessage").textContent = "Hello, " + name + "!";
+        };
+    }
+    const greetJohn = greeter("John");
+    const greetJane = greeter("Jane");
+&lt;/script&gt;
+            </code></pre>
+
+            <h3>6. Partial Application</h3>
+            <pre><code>
+&lt;button onclick="multiplyByTwo(5)"&gt;Multiply 5 by 2&lt;/button&gt;
+&lt;p id="multiplyResult"&gt;&lt;/p&gt;
+&lt;script&gt;
+    function multiplier(factor) {
+        return function(number) {
+            const result = number * factor;
+            document.getElementById("multiplyResult").textContent = "Result: " + result;
+        };
+    }
+    const multiplyByTwo = multiplier(2);
+&lt;/script&gt;
+            </code></pre>
+
+            <h3>7. Event Listener with Closure</h3>
+            <pre><code>
+&lt;button id="eventButton"&gt;Click Me&lt;/button&gt;
+&lt;p id="clickCount"&gt;Click Count: 0&lt;/p&gt;
+&lt;script&gt;
+    function attachClickListener() {
+        let clickCount = 0;
+        document.getElementById("eventButton").addEventListener("click", function() {
+            clickCount++;
+            document.getElementById("clickCount").textContent = "Click Count: " + clickCount;
+        });
+    }
+    attachClickListener();
+&lt;/script&gt;
+            </code></pre>
+
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
